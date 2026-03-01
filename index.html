@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="mg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zatovo Mianatra — Lesona Sekoly Sabata</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── TOKENS ─────────────────────────────────────────────────── */
+    :root {
+      --gold:        #D4A843;
+      --gold-light:  #F2CC6E;
+      --gold-bright: #FFE066;
+      --gold-dim:    #8A6820;
+      --gold-glow:   rgba(212,168,67,0.18);
+      --black:       #080808;
+      --black-soft:  #111111;
+      --black-card:  #0E0E0E;
+      --white:       #FAFAF8;
+      --white-dim:   rgba(250,250,248,0.72);
+      --white-faint: rgba(250,250,248,0.12);
+    }
+
+    /* ── RESET ──────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ────────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1.5rem 5rem;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('hero2.jpg');
+      background-size: cover;
+      background-position: center top;
+      z-index: 0;
+    }
+
+    /* Multi-layer overlay: noir profond + lueur dorée */
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 30%, rgba(212,168,67,0.10) 0%, transparent 65%),
+        linear-gradient(to bottom,
+          rgba(8,8,8,0.45) 0%,
+          rgba(8,8,8,0.25) 30%,
+          rgba(8,8,8,0.60) 70%,
+          rgba(8,8,8,0.97) 100%
+        );
+    }
+
+    /* Grain texture overlay */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+    }
+
+    /* Ligne dorée décorative */
+    .gold-line {
+      width: 80px;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 2rem;
+      animation: fadeSlideDown 1s ease both;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 1.5rem;
+      animation: fadeSlideDown 1s 0.1s ease both;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.8rem, 8vw, 6.5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.4rem;
+      animation: fadeSlideDown 1s 0.2s ease both;
+    }
+
+    .hero-title .gold-word {
+      background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold) 45%, var(--gold-dim) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 28px rgba(212,168,67,0.45));
+    }
+
+    .hero-subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.1rem, 3vw, 2rem);
+      font-weight: 400;
+      color: var(--white-dim);
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.04em;
+      animation: fadeSlideDown 1s 0.3s ease both;
+    }
+
+    .hero-intro {
+      font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--white-dim);
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      font-style: italic;
+      animation: fadeSlideDown 1s 0.4s ease both;
+    }
+
+    .hero-intro span {
+      color: var(--gold-light);
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    /* ── CTA BUTTON ─────────────────────────────────────────────── */
+    .cta-wrap {
+      animation: fadeSlideDown 1s 0.55s ease both;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 1rem 2.4rem;
+      background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold) 60%, #B8861A 100%);
+      color: var(--black);
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 3px;
+      position: relative;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 1px rgba(212,168,67,0.6),
+        0 8px 32px rgba(212,168,67,0.35),
+        0 2px 8px rgba(0,0,0,0.6);
+      transition: all 0.3s ease;
+    }
+
+    .btn-download::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .btn-download:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 0 0 1px rgba(255,224,102,0.8),
+        0 12px 48px rgba(212,168,67,0.55),
+        0 4px 16px rgba(0,0,0,0.5);
+    }
+    .btn-download:hover::before { opacity: 1; }
+    .btn-download:active { transform: translateY(0); }
+
+    .btn-download .android-icon {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    /* ── SCROLL INDICATOR ───────────────────────────────────────── */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 1;
+      animation: fadeSlideDown 1s 1.2s ease both;
+    }
+    .scroll-hint span {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(212,168,67,0.5);
+    }
+    .scroll-dot {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold-dim), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    /* ── FEATURES SECTION ───────────────────────────────────────── */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 1.5rem;
+    }
+
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 4rem;
+      max-width: 560px;
+    }
+
+    .section-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Grid features */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5px;
+      background: rgba(212,168,67,0.08);
+      border: 1px solid rgba(212,168,67,0.10);
+    }
+
+    .feature-card {
+      background: var(--black-card);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 1.5px;
+      background: linear-gradient(90deg, var(--gold-dim), var(--gold-light), var(--gold-dim));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .feature-card:hover { background: #121212; }
+    .feature-card:hover::before { opacity: 1; }
+
+    .feature-icon {
+      width: 42px;
+      height: 42px;
+      margin-bottom: 1.5rem;
+      color: var(--gold);
+    }
+
+    .feature-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.85rem;
+      color: var(--white);
+    }
+
+    .feature-desc {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--white-dim);
+    }
+
+    /* ── TANJONA SECTION ────────────────────────────────────────── */
+    .tanjona-section {
+      background: var(--black-soft);
+      border-top: 1px solid rgba(212,168,67,0.08);
+      border-bottom: 1px solid rgba(212,168,67,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tanjona-section::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(212,168,67,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .tanjona-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 6rem 1.5rem;
+      text-align: center;
+    }
+
+    .tanjona-quote {
+      font-size: clamp(1.25rem, 3vw, 1.85rem);
+      font-weight: 300;
+      line-height: 1.75;
+      font-style: italic;
+      color: var(--white-dim);
+      margin-bottom: 2rem;
+    }
+
+    .tanjona-quote strong {
+      color: var(--white);
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    /* ── CLOSING CALL ───────────────────────────────────────────── */
+    .closing {
+      text-align: center;
+      padding: 7rem 1.5rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .closing::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 1px; height: 80px;
+      background: linear-gradient(to bottom, var(--gold-dim), transparent);
+    }
+
+    .closing-ornament {
+      font-family: 'Cinzel', serif;
+      font-size: 3rem;
+      color: var(--gold);
+      opacity: 0.25;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.5em;
+    }
+
+    .closing-text {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.4;
+      max-width: 680px;
+      margin: 0 auto 3rem;
+    }
+
+    .closing-text em {
+      display: block;
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15em;
+      color: var(--gold-light);
+      font-weight: 300;
+      margin-top: 0.5rem;
+    }
+
+    .closing-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 1rem 2.4rem;
+      background: transparent;
+      color: var(--gold);
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--gold-dim);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(212,168,67,0.08);
+    }
+    .closing-cta:hover {
+      background: var(--gold-glow);
+      border-color: var(--gold);
+      box-shadow: 0 0 40px rgba(212,168,67,0.20);
+      color: var(--gold-bright);
+    }
+
+    /* ── FOOTER ─────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid rgba(212,168,67,0.08);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    footer p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: rgba(250,250,248,0.25);
+    }
+    footer .footer-gold {
+      color: var(--gold-dim);
+    }
+
+    /* ── DIVIDER ORNAMENT ───────────────────────────────────────── */
+    .ornament-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0 auto 3.5rem;
+      max-width: 300px;
+    }
+    .ornament-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim));
+    }
+    .ornament-line.right {
+      background: linear-gradient(90deg, var(--gold-dim), transparent);
+    }
+    .ornament-diamond {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+
+    /* ── ANIMATIONS ─────────────────────────────────────────────── */
+    @keyframes fadeSlideDown {
+      from { opacity: 0; transform: translateY(-18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50%       { opacity: 0.8; transform: scaleY(1.1); }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* Révélation au scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .hero { padding-bottom: 6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════ HERO ════════════════════ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+
+    <div class="hero-content">
+      <div class="gold-line"></div>
+      <p class="hero-eyebrow">Lesona Sekoly Sabata • Zatovo SDA Madagascar</p>
+
+      <h1 class="hero-title">
+        <span class="gold-word">Zatovo</span><br>
+        Mianatra
+      </h1>
+      <p class="hero-subtitle">im-pito</p>
+
+      <p class="hero-intro">
+        Miarahaba antsika rehetra, indrindra fa ny <span>zatovo</span>.
+        Ity tranonkala ity dia natao hizarana na hisintonana ny application
+        <span>Lesona Sekoly Sabata</span> ho an'ny zatovo 15 hatramin'ny 18 taona.
+      </p>
+
+      <div class="cta-wrap">
+        <a href="https://github.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/releases/latest"
+           class="btn-download"
+           target="_blank" rel="noopener">
+          <!-- Android icon SVG -->
+          <svg class="android-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.523 15.341a1.004 1.004 0 0 1-1.006-1.002 1.004 1.004 0 0 1 1.006-1.003A1.004 1.004 0 0 1 18.53 14.34a1.004 1.004 0 0 1-1.007 1.002Zm-11.046 0a1.004 1.004 0 0 1-1.006-1.002 1.004 1.004 0 0 1 1.006-1.003A1.004 1.004 0 0 1 7.483 14.34a1.004 1.004 0 0 1-1.006 1.002ZM17.87 8.4l1.967-3.408a.409.409 0 0 0-.148-.56.41.41 0 0 0-.56.15L17.1 7.618A11.617 11.617 0 0 0 12 6.545a11.62 11.62 0 0 0-5.1 1.073L4.87 4.582a.41.41 0 0 0-.56-.15.41.41 0 0 0-.15.56L6.13 8.4C3.577 9.878 1.828 12.474 1.5 15.5h21c-.328-3.026-2.077-5.622-4.63-7.1Z"/>
+          </svg>
+          Télécharger l'application
+        </a>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <span>Découvrir</span>
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- ════════════════════ FONCTIONNALITÉS ════════════════════ -->
+  <section>
+    <div class="section">
+      <p class="section-label reveal">Fonctionnalité</p>
+      <h2 class="section-title reveal reveal-delay-1">
+        Ny rehetra ilainao<br>
+        <em>ao anaty iray</em>
+      </h2>
+
+      <div class="features-grid">
+
+        <div class="feature-card reveal reveal-delay-1">
+          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+          </svg>
+          <h3 class="feature-title">Lesona Rehetra</h3>
+          <p class="feature-desc">Ahitana ny lesona rehetra Q1 ka hatramin'ny Q4, voalamina tsara ary mora tadiavina amin'ny fotoana rehetra.</p>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-2">
+          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z" />
+          </svg>
+          <h3 class="feature-title">Famintinana Isam-bentin'andro</h3>
+          <p class="feature-desc">Ireo famintinana isakin'ny lesona tsirairay mba hahasarika anao sy hahatonga anao hihevitra lalina kokoa ny hafatra.</p>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-3">
+          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+          </svg>
+          <h3 class="feature-title">Tahiry Lesona Taloha</h3>
+          <p class="feature-desc">Ahitana ireo tahirindesona rehetra tany aloha — taona isam-taona voalamina tsara, mora fitrandraka amin'ny fotoana rehetra.</p>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-4">
+          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+          </svg>
+          <h3 class="feature-title">Surlignage sy Commentaire</h3>
+          <p class="feature-desc">Manamora ny fianarana lesona satria misy surlignage sy commentaire mba hahafahana mahatadidy mora foana ny teny manandanja.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════ TANJONA ════════════════════ -->
+  <section class="tanjona-section">
+    <div class="tanjona-inner">
+      <div class="ornament-divider reveal">
+        <div class="ornament-line"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-line right"></div>
+      </div>
+
+      <p class="section-label reveal">Tanjona</p>
+      <p class="tanjona-quote reveal reveal-delay-1">
+        Ny tanjonay dia ny mba hahatonga ny <strong>zatovo rehetra Advantista eto Madagascar</strong>
+        ho hahavita hianatra lesona impito ary hanampy azy ireo koa
+        ho <strong>hanakaiky kokoa an'Andriamanitra</strong>.
+        Satria ny ankamaroan'ny zatovo dia efa samy mampiasa finday avokoa.
+      </p>
+
+      <div class="ornament-divider reveal reveal-delay-2" style="margin-bottom:0">
+        <div class="ornament-line"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-line right"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════ CLOSING ════════════════════ -->
+  <section class="closing">
+    <p class="closing-ornament reveal">✦ ✦ ✦</p>
+
+    <h2 class="closing-text reveal reveal-delay-1">
+      Ka na dia 5 minitra isan'andro aza
+      <em>ve dia tsy ho foinao ho an'i Jesôsy?</em>
+    </h2>
+
+    <div class="reveal reveal-delay-2">
+      <a href="https://github.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/releases/latest"
+         class="closing-cta"
+         target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.523 15.341a1.004 1.004 0 0 1-1.006-1.002 1.004 1.004 0 0 1 1.006-1.003A1.004 1.004 0 0 1 18.53 14.34a1.004 1.004 0 0 1-1.007 1.002Zm-11.046 0a1.004 1.004 0 0 1-1.006-1.002 1.004 1.004 0 0 1 1.006-1.003A1.004 1.004 0 0 1 7.483 14.34a1.004 1.004 0 0 1-1.006 1.002ZM17.87 8.4l1.967-3.408a.409.409 0 0 0-.148-.56.41.41 0 0 0-.56.15L17.1 7.618A11.617 11.617 0 0 0 12 6.545a11.62 11.62 0 0 0-5.1 1.073L4.87 4.582a.41.41 0 0 0-.56-.15.41.41 0 0 0-.15.56L6.13 8.4C3.577 9.878 1.828 12.474 1.5 15.5h21c-.328-3.026-2.077-5.622-4.63-7.1Z"/>
+        </svg>
+        Télécharger l'APK Android
+      </a>
+    </div>
+  </section>
+
+  <!-- ════════════════════ FOOTER ════════════════════ -->
+  <footer>
+    <p>
+      <span class="footer-gold">Zatovo Mianatra im-pito</span>
+      &nbsp;·&nbsp; Zatovo Miaradia aminJesosy &nbsp;·&nbsp; Madagascar
+    </p>
+  </footer>
+
+  <!-- ── SCROLL REVEAL JS ───────────────────────────────────────── -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
