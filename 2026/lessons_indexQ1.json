@@ -1,5 +1,5 @@
 {
-  "timestamp": 1773343693,
+  "timestamp": 1772135166,
   "lessons": [
     {
       "id": 1,
@@ -9,7 +9,9 @@
       "version": "1.0",
       "timestamp": 1766793600,
       "created_at": 1766793600,
-      "updated_at": 1766793600
+      "updated_at": 1766793600,
+      "start_date": "2025-12-27",
+      "end_date": "2026-01-02"
     },
     {
       "id": 2,
@@ -19,7 +21,9 @@
       "version": "1.0",
       "timestamp": 1771327273,
       "created_at": 1771327273,
-      "updated_at": 1771327273
+      "updated_at": 1771327273,
+      "start_date": "2026-01-03",
+      "end_date": "2026-01-09"
     },
     {
       "id": 3,
@@ -29,7 +33,9 @@
       "version": "1.0",
       "timestamp": 1771754068,
       "created_at": 1771754068,
-      "updated_at": 1771754068
+      "updated_at": 1771754068,
+      "start_date": "2026-01-10",
+      "end_date": "2026-01-16"
     },
     {
       "id": 4,
@@ -39,7 +45,9 @@
       "version": "1.0",
       "timestamp": 1768608000,
       "created_at": 1768608000,
-      "updated_at": 1768608000
+      "updated_at": 1768608000,
+      "start_date": "2026-01-17",
+      "end_date": "2026-01-23"
     },
     {
       "id": 5,
@@ -49,7 +57,9 @@
       "version": "1.0",
       "timestamp": 1769212800,
       "created_at": 1769212800,
-      "updated_at": 1769212800
+      "updated_at": 1769212800,
+      "start_date": "2026-01-24",
+      "end_date": "2026-01-30"
     },
     {
       "id": 6,
@@ -59,7 +69,9 @@
       "version": "1.0",
       "timestamp": 1769817600,
       "created_at": 1769817600,
-      "updated_at": 1769817600
+      "updated_at": 1769817600,
+      "start_date": "2026-01-31",
+      "end_date": "2026-02-06"
     },
     {
       "id": 7,
@@ -69,7 +81,9 @@
       "version": "1.0",
       "timestamp": 1770422400,
       "created_at": 1770422400,
-      "updated_at": 1770422400
+      "updated_at": 1770422400,
+      "start_date": "2026-02-07",
+      "end_date": "2026-02-13"
     },
     {
       "id": 8,
@@ -79,7 +93,9 @@
       "version": "1.0",
       "timestamp": 1771027200,
       "created_at": 1771027200,
-      "updated_at": 1771027200
+      "updated_at": 1771027200,
+      "start_date": "2026-02-14",
+      "end_date": "2026-02-20"
     },
     {
       "id": 9,
@@ -89,7 +105,9 @@
       "version": "1.0",
       "timestamp": 1771632000,
       "created_at": 1771632000,
-      "updated_at": 1771632000
+      "updated_at": 1771632000,
+      "start_date": "2026-02-21",
+      "end_date": "2026-02-27"
     },
     {
       "id": 10,
@@ -99,7 +117,9 @@
       "version": "1.0",
       "timestamp": 1772755200,
       "created_at": 1772755200,
-      "updated_at": 1772755200
+      "updated_at": 1772755200,
+      "start_date": "2026-02-28",
+      "end_date": "2026-03-06"
     },
     {
       "id": 11,
@@ -109,7 +129,9 @@
       "version": "1.0",
       "timestamp": 1772841600,
       "created_at": 1772841600,
-      "updated_at": 1772841600
+      "updated_at": 1772841600,
+      "start_date": "2026-03-07",
+      "end_date": "2026-03-13"
     },
     {
       "id": 12,
@@ -119,7 +141,9 @@
       "version": "1.0",
       "timestamp": 1773446400,
       "created_at": 1773446400,
-      "updated_at": 1773446400
+      "updated_at": 1773446400,
+      "start_date": "2026-03-14",
+      "end_date": "2026-03-20"
     },
     {
       "id": 13,
@@ -129,7 +153,9 @@
       "version": "1.0",
       "timestamp": 1774051200,
       "created_at": 1774051200,
-      "updated_at": 1774051200
+      "updated_at": 1774051200,
+      "start_date": "2026-03-21",
+      "end_date": "2026-03-27"
     }
   ]
 }
