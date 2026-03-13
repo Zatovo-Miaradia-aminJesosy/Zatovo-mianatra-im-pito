@@ -1,125 +1,109 @@
 {
+  "timestamp": 1769385600,
   "summaries": [
     {
       "week_number": 1,
       "start_date": "2025-12-27",
-      "date": "27 déc 2025 - 2 jan 2026",
+      "date": "27 Des 2025 - 2 Jan 2026",
       "title": "Lesona 1 - Teny farany sy Vavolombelona",
       "content": "Mazàna ny teny farany ambaran'ny olona iray no tena manana lanja lehibe indrindra, indrindra raha fantany fa izany no hany teny farany azony ambara. Tsy misy hafa amin'izany ny teny farany nolazain'i Kristy.",
-      "verse": "Asa 1:7-8",
-      "reference": "Baiboly Masina"
+      "verse": "Asa 1:7-8"
     },
     {
       "week_number": 2,
       "start_date": "2026-01-03",
-      "date": "3 jan - 9 jan 2026",
+      "date": "3 Jan - 9 Jan 2026",
       "title": "Lesona 2 - Ilay fanomezana nampanantenaina",
       "content": "Anankiray amin'ireo fanomezana lehibe indrindra atolotr'Andriamanitra antsika ny Fanahy Masina. Fanomezana mendrika horaisintsika ve anefa izany araka ny fahitantsika Azy?",
-      "verse": "Asa 2:2-4",
-      "reference": "Baiboly Masina"
+      "verse": "Asa 2:2-4"
     },
     {
       "week_number": 3,
       "start_date": "2026-01-10",
-      "date": "10 jan - 16 jan 2026",
+      "date": "10 Jan - 16 Jan 2026",
       "title": "Lesona 3 - Maneho an'i Jesosy",
       "content": "Hita niharihary teo amin'ny fomba firesahan'i Jaona sy i Petera fa niara-dia tamin'i Jesosy izy ireo. Izany koa ve no ambaran'ny olona mikasika antsika?",
-      "verse": "Asa 4:13",
-      "reference": "Baiboly Masina"
+      "verse": "Asa 4:13"
     },
     {
       "week_number": 4,
       "start_date": "2026-01-17",
-      "date": "17 jan - 23 jan 2026",
+      "date": "17 Jan - 23 Jan 2026",
       "title": "Lesona 4 - Ny fahitsiana toetra",
       "content": "Miantso antsika ho mahatoky tanteraka sy tsy hanan-kilema amin'ny toetra Andriamanitra. Mampalahelo anefa fa tsy niraharaha izany antso izany i Ananiasy sy i Safira.",
-      "verse": "Asa 5:1-2",
-      "reference": "Baiboly Masina"
+      "verse": "Asa 5:1-2"
     },
     {
       "week_number": 5,
       "start_date": "2026-01-24",
-      "date": "24 jan - 30 jan 2026",
+      "date": "24 Jan - 30 Jan 2026",
       "title": "Lesona 5 - Hery, Faharetana, Tanjona",
       "content": "Na mpitarika ara-pivavahana isika na tanora, dia samy omen'Andriamanitra hery avokoa, tsy mba handresentsika ny fahoriana ihany, fa hampitombo ny fanomezam-pahasoavantsika mba hampiasaina ho voninahiny.",
-      "verse": "Mat 5:11",
-      "reference": "Baiboly Masina"
+      "verse": "Mat 5:11"
     },
     {
       "week_number": 6,
       "start_date": "2026-01-31",
-      "date": "31 jan - 6 fév 2026",
+      "date": "31 Jan - 6 Fév 2026",
       "title": "Lesona 6 - Ilay martiora kristianina voalohany",
       "content": "Nentina teo amin'ny fitsarana i Stefana noho ny fiampangana sandoka natao taminy. Fotoana fohy monja no nomena azy hiarovany tena, dia novonoina izy. Nitaky vidiny toy izany ny fanompoana an'Andriamanitra tamin'izany fotoana izany, ary mitaky izany koa amin'izao andro izao.",
-      "verse": "Asa 6:8-10",
-      "reference": "Baiboly Masina"
+      "verse": "Asa 6:8-10"
     },
     {
       "week_number": 7,
       "start_date": "2026-02-07",
-      "date": "7 fév - 13 fév 2026",
+      "date": "7 Fév - 13 Fév 2026",
       "title": "Lesona 7 - Manatratra ny eo aloha",
       "content": "Efa tafahoatra loatra ny asa fandravana nataon'i Saoly, ka tsy maintsy nampijanona azy i Jesosy, nanova azy ary nametraka azy tamin'ny lalana vaovao, lalana nisy tanjona.",
-      "verse": "Fil 3:13-14",
-      "reference": "Baiboly Masina"
+      "verse": "Fil 3:13-14"
     },
     {
       "week_number": 8,
       "start_date": "2026-02-14",
-      "date": "14 fév - 20 fév 2026",
+      "date": "14 Fév - 20 Fév 2026",
       "title": "Lesona 8 - Porofon'ny fiovam-po",
       "content": "Araka ny voaporofo teo amin'ny fiainan'i Petera, dia tsy olona tonga lafatra no tadiavin'i Jesosy hanaraka Azy, fa olona mety diso amin'ny maha-olombelona azy kanefa azon'ny fitiavany ovaina.",
-      "verse": "2 Petera 1:3",
-      "reference": "Baiboly Masina"
+      "verse": "2 Pet 1:3"
     },
     {
       "week_number": 9,
       "start_date": "2026-02-21",
-      "date": "21 fév - 27 fév 2026",
+      "date": "21 Fév - 27 Fév 2026",
       "title": "Lesona 9 - Ny tena ivon-toeran'ny iraka",
       "content": "Antiokia no fihaonan-dalana lehibe teo amin'ny fanjakana rômanina, ary avy teo no nandefasan'Andriamanitra ny olony hanatanteraka ny iraka. Tsy nijanona teo anefa izany.",
-      "verse": "Asa 13:38-39",
-      "reference": "Baiboly Masina"
+      "verse": "Asa 13:38-39"
     },
     {
       "week_number": 10,
       "start_date": "2026-02-28",
-      "date": "28 fév - 6 mar 2026",
+      "date": "28 Fév - 6 Mar 2026",
       "title": "Lesona 10 - Isika sy izy ireo",
       "content": "Nisy fifanolanana teo anivon'ny Jentilisa sy ny Jiosy mpino. Tamin'ny alalan'ny fifampizarana ny fomba niasan'Andriamanitra teo amin'izy ireo anefa, dia novelomina indray ny hafanam-pony teo amin'ny fanatanterahana ny iraka ho an'izao tontolo izao.",
-      "verse": "Asa 15:10-11",
-      "reference": "Baiboly Masina"
+      "verse": "Asa 15:10-11"
     },
     {
       "week_number": 11,
       "start_date": "2026-03-07",
-      "date": "7 mar - 13 mar 2026",
+      "date": "7 Mar - 13 Mar 2026",
       "title": "Lesona 11 - Finoana miasa",
       "content": "Tsy ampy ny mino fotsiny ireo zavatra heverina ho 'marina' eto amin'izao tontolo izao. Tsy maintsy miorina tsara eo amin'ny Tenin'Andriamanitra isika mba hanao safidy araka ny tokony ho izy.",
-      "verse": "Efes 4:13-14",
-      "reference": "Baiboly Masina"
+      "verse": "Efes 4:13-14"
     },
     {
       "week_number": 12,
       "start_date": "2026-03-14",
-      "date": "14 mar - 20 mar 2026",
+      "date": "14 Mar - 20 Mar 2026",
       "title": "Lesona 12 - Manantena hatrany",
       "content": "Rehefa rentsika miverimberina ny vaovao mahafaly, dia toa tsy manan-kery eo amintsika intsony ny vokany. Ho aiza anefa isika raha tsy mitana izany fanantenana izany?",
-      "verse": "1 Tes 4:16-17",
-      "reference": "Baiboly Masina"
+      "verse": "1 Tes 4:16-17"
     },
     {
       "week_number": 13,
       "start_date": "2026-03-21",
-      "date": "21 mar - 27 mar 2026",
+      "date": "21 Mar - 27 Mar 2026",
       "title": "Lesona 13 - Olom-bitsy tsy maha-te ho tia",
       "content": "Nanana fahavalo maromaro i Paoly vokatry ny asa fitoriana nataony; nampiato ny fivarotana sampy izy. Tsy nilaza na oviana na oviana anefa Andriamanitra fa hahatonga antsika ho mamim-bahoaka ny fijoroana amin'ny marina.",
-      "verse": "Asa 19:11-12",
-      "reference": "Baiboly Masina"
+      "verse": "Asa 19:11-12"
     }
-  ],
-  "last_update": "2026-02-07",
-  "timestamp": 1769385600000,
-  "start_date": "2025-12-27",
-  "days_per_summary": 7
+  ]
 }
