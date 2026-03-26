@@ -4,20 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Zatovo Mianatra im-pito | Lesona Sekoly Sabata</title>
-<!-- Google Fonts: fampidirana mba tsy hisian'ny fiovan'endrika tampoka -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
+
 /* ══════════════════════════════════════════
-   TOKENS GRAYSCALE
+   TOKENS
 ══════════════════════════════════════════ */
 :root {
-  --black: #000000;
-  --dark-gray: #222222;
-  --gray: #777777;
-  --light-gray: #CCCCCC;
-  --white: #FFFFFF;
+  --black:       #111111;
+  --dark:        #2a2a2a;
+  --mid:         #555555;
+  --muted:       #888888;
+  --border:      #e0e0e0;
+  --bg-subtle:   #f7f7f7;
+  --white:       #ffffff;
+
+  --font-serif:  'EB Garamond', Georgia, serif;
+  --font-display:'Cinzel', Georgia, serif;
 }
 
 /* ══════════════════════════════════════════
@@ -25,96 +30,139 @@
 ══════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+
 body {
-  background: var(--black);
-  color: var(--white);
-  font-family: 'EB Garamond', Georgia, serif;
+  background: var(--white);
+  color: var(--dark);
+  font-family: var(--font-serif);
+  font-size: 18px;
+  line-height: 1.75;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ══════════════════════════════════════════
-   HERO SECTION
+   NAV / TOPBAR
+══════════════════════════════════════════ */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar-brand {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.topbar-dl {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--black);
+  border: none;
+  padding: 0.55rem 1.1rem;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.topbar-dl:hover { background: var(--mid); }
+
+/* ══════════════════════════════════════════
+   HERO
 ══════════════════════════════════════════ */
 .hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding: 5rem 1.5rem 5rem;
+  max-width: 860px;
+  margin: 0 auto;
   text-align: center;
-  padding: 2rem 1.5rem 5rem;
 }
 
 .hero-eyebrow {
-  font-family: 'Cinzel', serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.32em;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--light-gray);
+  color: var(--muted);
   margin-bottom: 2rem;
-  word-break: keep-all;
-}
-
-@media (max-width: 560px) {
-  .hero-eyebrow {
-    letter-spacing: 0.2em;
-    font-size: 0.6rem;
-  }
 }
 
 .hero-title {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(2.8rem, 10vw, 5rem);
-  line-height: 1.2;
-  margin-bottom: 0.5rem;
-  color: var(--white);
+  font-size: clamp(2.4rem, 8vw, 4.5rem);
+  line-height: 1.15;
+  color: var(--black);
+  margin-bottom: 0.4rem;
 }
 
 .hero-sub {
   display: block;
-  font-family: 'Cinzel Decorative', serif;
-  font-size: clamp(1rem, 2.4vw, 1.5rem);
-  color: var(--gray);
-  margin-top: 0.65rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  color: var(--muted);
+  margin-top: 0.6rem;
+  letter-spacing: 0.1em;
 }
 
 .hero-intro {
-  font-size: clamp(1.05rem, 2vw, 1.28rem);
-  line-height: 1.9;
-  color: var(--light-gray);
+  font-size: clamp(1rem, 2vw, 1.2rem);
   font-style: italic;
-  max-width: 610px;
-  margin: 1.8rem auto 2.8rem;
+  line-height: 1.85;
+  color: var(--mid);
+  max-width: 600px;
+  margin: 2rem auto 2.8rem;
 }
-.hero-intro strong { color: var(--white); font-style: normal; }
+.hero-intro strong {
+  color: var(--black);
+  font-style: normal;
+  font-weight: 600;
+}
 
-/* ══════════════════════════════════════════
-   CTA BUTTONS
-══════════════════════════════════════════ */
-.btn-dl, .btn-ghost {
+.hero-cta {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.8rem;
-  padding: 1rem 2rem;
-  font-family: 'Cinzel', serif;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
   font-weight: 600;
-  font-size: 0.85rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  border-radius: 2px;
-  border: 1px solid var(--gray);
-  background: var(--dark-gray);
   color: var(--white);
+  background: var(--black);
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 2px;
   cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
   text-decoration: none;
-  transition: all 0.2s ease;
 }
-.btn-dl:hover, .btn-ghost:hover {
-  background: var(--gray);
-  border-color: var(--light-gray);
-  color: var(--black);
+.hero-cta:hover {
+  background: var(--dark);
+  transform: translateY(-1px);
+}
+
+/* ══════════════════════════════════════════
+   DIVIDER
+══════════════════════════════════════════ */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
 }
 
 /* ══════════════════════════════════════════
@@ -122,113 +170,237 @@ body {
 ══════════════════════════════════════════ */
 .features {
   padding: 5rem 1.5rem;
-  max-width: 1140px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .sec-tag {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-display);
   font-size: 0.6rem;
-  letter-spacing: 0.36em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--gray);
-  margin-bottom: 1rem;
+  color: var(--muted);
+  margin-bottom: 0.8rem;
 }
 
 .sec-h {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(1.6rem, 4vw, 2.7rem);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.4rem);
   font-weight: 700;
   line-height: 1.2;
+  color: var(--black);
   margin-bottom: 3rem;
-  color: var(--white);
 }
 
 .feat-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 .fc {
-  background: var(--dark-gray);
-  padding: 2rem;
-  border-radius: 4px;
-  transition: transform 0.2s;
+  background: var(--white);
+  padding: 2rem 1.75rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
 }
-.fc:hover {
-  transform: translateY(-4px);
+.fc:hover { background: var(--bg-subtle); }
+/* remove right border on 2nd column */
+.fc:nth-child(2n)  { border-right: none; }
+/* remove bottom border on last row */
+.fc:nth-last-child(-n+2) { border-bottom: none; }
+
+.fc-num {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 0.9rem;
 }
-.fc-num { font-size: 0.7rem; color: var(--gray); margin-bottom: 1rem; letter-spacing: 1px; }
-.fc-name { font-family: 'Cinzel', serif; font-weight: 600; margin-bottom: 0.75rem; color: var(--white); }
-.fc-text { font-size: 1rem; color: var(--light-gray); line-height: 1.5; }
+.fc-name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+.fc-text {
+  font-size: 0.95rem;
+  color: var(--mid);
+  line-height: 1.6;
+}
 
 /* ══════════════════════════════════════════
-   MISSION SECTION
+   MISSION
 ══════════════════════════════════════════ */
 .mission {
-  background: var(--black);
-  border-top: 1px solid var(--dark-gray);
-  border-bottom: 1px solid var(--dark-gray);
-  padding: 5rem 2rem;
+  background: var(--bg-subtle);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 5rem 1.5rem;
   text-align: center;
 }
 
 .mission-text {
-  font-size: clamp(1.18rem, 2.6vw, 1.6rem);
-  line-height: 1.9;
+  font-size: clamp(1.1rem, 2.4vw, 1.45rem);
   font-style: italic;
-  color: var(--light-gray);
-  max-width: 820px;
+  line-height: 1.9;
+  color: var(--mid);
+  max-width: 760px;
   margin: 0 auto;
 }
-.mission-text strong { color: var(--white); font-style: normal; }
+.mission-text strong {
+  color: var(--black);
+  font-style: normal;
+  font-weight: 600;
+}
 
 /* ══════════════════════════════════════════
    CLOSING
 ══════════════════════════════════════════ */
 .closing {
-  text-align: center;
   padding: 6rem 1.5rem 5rem;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
 }
+
 .c-q {
-  font-family: 'Cinzel Decorative', serif;
-  font-size: clamp(1.3rem, 3.8vw, 2.4rem);
-  line-height: 1.42;
-  color: var(--white);
-  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--black);
+  margin-bottom: 2rem;
 }
 .c-sub {
   display: block;
-  font-family: 'Cinzel Decorative', serif;
-  font-size: clamp(1rem, 2.2vw, 1.35rem);
-  color: var(--gray);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
+  color: var(--muted);
   margin-top: 0.5rem;
-  font-style: normal;
+  letter-spacing: 0.04em;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: transparent;
+  border: 1.5px solid var(--black);
+  padding: 0.9rem 2rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+  text-decoration: none;
+}
+.btn-ghost:hover {
+  background: var(--black);
+  color: var(--white);
+  transform: translateY(-1px);
 }
 
 /* ══════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════ */
 footer {
-  border-top: 1px solid var(--dark-gray);
-  padding: 2rem 1.5rem;
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 1.5rem;
   text-align: center;
+  background: var(--white);
 }
-.ft-name { font-family: 'Cinzel Decorative', serif; font-size: 0.7rem; color: var(--white); margin-bottom: 0.5rem; }
-.ft-sub { font-family: 'Cinzel', serif; font-size: 0.58rem; color: var(--gray); letter-spacing: 1px; }
+.ft-name {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--black);
+  margin-bottom: 0.4rem;
+}
+.ft-sub {
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
 
 /* ══════════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE — MOBILE
 ══════════════════════════════════════════ */
-@media (max-width: 768px) {
-  .feat-grid { grid-template-columns: 1fr; }
-  .hero { padding: 3rem 1rem 4rem; }
-  .hero-intro { margin: 1.5rem auto 2rem; }
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+
+  .topbar { padding: 0.75rem 1rem; }
+  .topbar-brand { font-size: 0.6rem; }
+
+  .hero {
+    padding: 3rem 1.25rem 4rem;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+  }
+
+  .hero-cta {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.7rem;
+    padding: 0.85rem 1.5rem;
+  }
+
+  .features { padding: 3.5rem 1rem; }
+
+  /* stack grid to 1 col on mobile */
+  .feat-grid {
+    grid-template-columns: 1fr;
+  }
+  .fc {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+  .fc:last-child { border-bottom: none !important; }
+
+  .mission { padding: 3.5rem 1.25rem; }
+
+  .closing { padding: 4rem 1.25rem 3.5rem; }
+  .btn-ghost {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.7rem;
+  }
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — TABLET
+══════════════════════════════════════════ */
+@media (min-width: 641px) and (max-width: 900px) {
+  .feat-grid { grid-template-columns: 1fr 1fr; }
+
+  .fc:nth-last-child(-n+2) { border-bottom: none; }
 }
 </style>
 </head>
 <body>
+
+<!-- ═════════ NAV ═════════ -->
+<nav class="topbar">
+  <span class="topbar-brand">Zatovo Mianatra im-pito</span>
+  <button class="topbar-dl" id="dlNavBtn">Télécharger</button>
+</nav>
 
 <!-- ═════════ HERO ═════════ -->
 <section class="hero">
@@ -242,8 +414,10 @@ footer {
     Ity tranonkala ity dia natao hizarana na hisintonana ny application
     <strong>Lesona Sekoly Sabata</strong> ho an'ny zatovo 15 hatramin'ny 18 taona.
   </p>
-  <button class="btn-dl" id="dlAppBtn">Télécharger l'application</button>
+  <button class="hero-cta" id="dlAppBtn">Télécharger l'application</button>
 </section>
+
+<hr class="divider">
 
 <!-- ═════════ FEATURES ═════════ -->
 <section class="features">
@@ -267,11 +441,13 @@ footer {
     </div>
     <div class="fc">
       <p class="fc-num">04 / 04</p>
-      <h3 class="fc-name">Surlignage & Commentaire</h3>
+      <h3 class="fc-name">Surlignage &amp; Commentaire</h3>
       <p class="fc-text">Manamora ny fianarana satria misy surlignage sy commentaire mba hahafahana mahatadidy mora foana ny teny manandanja.</p>
     </div>
   </div>
 </section>
+
+<hr class="divider">
 
 <!-- ═════════ MISSION ═════════ -->
 <section class="mission">
@@ -281,7 +457,7 @@ footer {
     <strong>zatovo rehetra Advantista eto Madagascar</strong>
     ho hahavita hianatra lesona impito ary hanampy azy ireo koa
     ho <strong>hanakaiky kokoa an'Andriamanitra</strong>.
-    Satria ny <span style="font-weight:500">ankamaroan'ny zatovo</span>
+    Satria ny ankamaroan'ny zatovo
     dia efa samy mampiasa finday avokoa —
     koa dia aoka hampiasaintsika izany ho fanatsarana ny fiainam-panahy.
   </p>
@@ -299,34 +475,24 @@ footer {
 <!-- ═════════ FOOTER ═════════ -->
 <footer>
   <p class="ft-name">Zatovo Mianatra im-pito</p>
-  <p class="ft-sub">Zatovo Miaradia aminJesosy · Madagascar · SDA</p>
+  <p class="ft-sub">Zatovo Miaradia amin'i Jesosy &nbsp;·&nbsp; Madagascar &nbsp;·&nbsp; SDA</p>
 </footer>
 
 <script>
-  // Fikarakarana ny bokotra mba hisorohana ny "crash" sy hanomezana valiny rehefa tsy mbola misy ny rakitra
   (function() {
-    const btnApp = document.getElementById('dlAppBtn');
-    const btnApk = document.getElementById('dlApkBtn');
-
     function showNotAvailable() {
       alert("⚠️ Ny fampidinana dia tsy mbola azo alaina. Ho avoaka tsy ho ela ny rohy fampidinana ofisialy. Misaotra ny faharetanao!");
     }
 
-    if (btnApp) {
-      btnApp.addEventListener('click', (e) => {
-        e.preventDefault();
-        // Raha tianao hampifandray amin'ny rohy tena izy dia soloina eto ny URL
-        // Ohatra: window.location.href = "https://votre-domaine.com/app.apk";
-        showNotAvailable();
-      });
-    }
-
-    if (btnApk) {
-      btnApk.addEventListener('click', (e) => {
-        e.preventDefault();
-        showNotAvailable();
-      });
-    }
+    ['dlAppBtn', 'dlNavBtn', 'dlApkBtn'].forEach(function(id) {
+      var btn = document.getElementById(id);
+      if (btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          showNotAvailable();
+        });
+      }
+    });
   })();
 </script>
 </body>
