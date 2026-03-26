@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="mg">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Zatovo Mianatra im-pito</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Zatovo Mianatra im-pito | Lesona Sekoly Sabata</title>
+<!-- Google Fonts: fampidirana mba tsy hisian'ny fiovan'endrika tampoka -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 /* ══════════════════════════════════════════
    TOKENS GRAYSCALE
@@ -19,7 +23,7 @@
 /* ══════════════════════════════════════════
    RESET & BASE
 ══════════════════════════════════════════ */
-*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
   background: var(--black);
@@ -35,58 +39,69 @@ body {
   position: relative;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem 1.5rem 7rem;
+  padding: 2rem 1.5rem 5rem;
 }
 
 .hero-eyebrow {
   font-family: 'Cinzel', serif;
-  font-size: .64rem;
-  letter-spacing: .44em;
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--light-gray);
   margin-bottom: 2rem;
+  word-break: keep-all;
+}
+
+@media (max-width: 560px) {
+  .hero-eyebrow {
+    letter-spacing: 0.2em;
+    font-size: 0.6rem;
+  }
 }
 
 .hero-title {
   font-family: 'Cinzel Decorative', serif;
   font-weight: 700;
-  font-size: clamp(2.8rem,10vw,5rem);
-  line-height: 1.1;
-  margin-bottom: .8rem;
+  font-size: clamp(2.8rem, 10vw, 5rem);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
   color: var(--white);
 }
 
 .hero-sub {
+  display: block;
   font-family: 'Cinzel Decorative', serif;
-  font-size: clamp(1rem,2.4vw,1.5rem);
+  font-size: clamp(1rem, 2.4vw, 1.5rem);
   color: var(--gray);
-  margin: 1.4rem 0 2.6rem;
+  margin-top: 0.65rem;
 }
 
 .hero-intro {
-  font-size: clamp(1.05rem,2vw,1.28rem);
+  font-size: clamp(1.05rem, 2vw, 1.28rem);
   line-height: 1.9;
   color: var(--light-gray);
   font-style: italic;
   max-width: 610px;
-  margin: 0 auto 3.2rem;
+  margin: 1.8rem auto 2.8rem;
 }
 .hero-intro strong { color: var(--white); font-style: normal; }
 
 /* ══════════════════════════════════════════
-   CTA BUTTON
+   CTA BUTTONS
 ══════════════════════════════════════════ */
 .btn-dl, .btn-ghost {
   display: inline-flex;
   align-items: center;
-  gap: .8rem;
+  justify-content: center;
+  gap: 0.8rem;
   padding: 1rem 2rem;
   font-family: 'Cinzel', serif;
   font-weight: 600;
-  font-size: .85rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
   border-radius: 2px;
   border: 1px solid var(--gray);
@@ -94,8 +109,13 @@ body {
   color: var(--white);
   cursor: pointer;
   text-decoration: none;
+  transition: all 0.2s ease;
 }
-.btn-dl svg, .btn-ghost svg { fill: var(--white); }
+.btn-dl:hover, .btn-ghost:hover {
+  background: var(--gray);
+  border-color: var(--light-gray);
+  color: var(--black);
+}
 
 /* ══════════════════════════════════════════
    FEATURES
@@ -108,8 +128,8 @@ body {
 
 .sec-tag {
   font-family: 'Cinzel', serif;
-  font-size: .6rem;
-  letter-spacing: .36em;
+  font-size: 0.6rem;
+  letter-spacing: 0.36em;
   text-transform: uppercase;
   color: var(--gray);
   margin-bottom: 1rem;
@@ -117,7 +137,7 @@ body {
 
 .sec-h {
   font-family: 'Cinzel', serif;
-  font-size: clamp(1.6rem,4vw,2.7rem);
+  font-size: clamp(1.6rem, 4vw, 2.7rem);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 3rem;
@@ -126,18 +146,22 @@ body {
 
 .feat-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
 }
 
 .fc {
   background: var(--dark-gray);
   padding: 2rem;
   border-radius: 4px;
+  transition: transform 0.2s;
 }
-.fc-num { font-size: .65rem; color: var(--gray); margin-bottom: 1rem; }
-.fc-name { font-family: 'Cinzel', serif; font-weight: 600; margin-bottom: .5rem; color: var(--white); }
-.fc-text { font-size: 1rem; color: var(--light-gray); }
+.fc:hover {
+  transform: translateY(-4px);
+}
+.fc-num { font-size: 0.7rem; color: var(--gray); margin-bottom: 1rem; letter-spacing: 1px; }
+.fc-name { font-family: 'Cinzel', serif; font-weight: 600; margin-bottom: 0.75rem; color: var(--white); }
+.fc-text { font-size: 1rem; color: var(--light-gray); line-height: 1.5; }
 
 /* ══════════════════════════════════════════
    MISSION SECTION
@@ -151,7 +175,7 @@ body {
 }
 
 .mission-text {
-  font-size: clamp(1.18rem,2.6vw,1.6rem);
+  font-size: clamp(1.18rem, 2.6vw, 1.6rem);
   line-height: 1.9;
   font-style: italic;
   color: var(--light-gray);
@@ -169,12 +193,19 @@ body {
 }
 .c-q {
   font-family: 'Cinzel Decorative', serif;
-  font-size: clamp(1.3rem,3.8vw,2.4rem);
+  font-size: clamp(1.3rem, 3.8vw, 2.4rem);
   line-height: 1.42;
   color: var(--white);
-  margin-bottom: .8rem;
+  margin-bottom: 1rem;
 }
-.c-sub { font-size: 1rem; color: var(--gray); font-style: italic; margin-bottom: 3rem; }
+.c-sub {
+  display: block;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  color: var(--gray);
+  margin-top: 0.5rem;
+  font-style: normal;
+}
 
 /* ══════════════════════════════════════════
    FOOTER
@@ -184,14 +215,16 @@ footer {
   padding: 2rem 1.5rem;
   text-align: center;
 }
-.ft-name { font-family: 'Cinzel Decorative', serif; font-size: .7rem; color: var(--white); margin-bottom: .5rem; }
-.ft-sub { font-family: 'Cinzel', serif; font-size: .58rem; color: var(--gray); }
+.ft-name { font-family: 'Cinzel Decorative', serif; font-size: 0.7rem; color: var(--white); margin-bottom: 0.5rem; }
+.ft-sub { font-family: 'Cinzel', serif; font-size: 0.58rem; color: var(--gray); letter-spacing: 1px; }
 
 /* ══════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════ */
-@media(max-width:768px){
+@media (max-width: 768px) {
   .feat-grid { grid-template-columns: 1fr; }
+  .hero { padding: 3rem 1rem 4rem; }
+  .hero-intro { margin: 1.5rem auto 2rem; }
 }
 </style>
 </head>
@@ -200,13 +233,16 @@ footer {
 <!-- ═════════ HERO ═════════ -->
 <section class="hero">
   <p class="hero-eyebrow">Lesona Sekoly Sabata &nbsp;·&nbsp; Zatovo SDA Madagascar</p>
-  <h1 class="hero-title">Zatovo Mianatra <br><span class="hero-sub">im · pito</span></h1>
+  <h1 class="hero-title">
+    Zatovo Mianatra
+    <span class="hero-sub">im · pito</span>
+  </h1>
   <p class="hero-intro">
     Miarahaba antsika rehetra, indrindra fa ny <strong>zatovo</strong>.
     Ity tranonkala ity dia natao hizarana na hisintonana ny application
     <strong>Lesona Sekoly Sabata</strong> ho an'ny zatovo 15 hatramin'ny 18 taona.
   </p>
-  <button class="btn-dl">Télécharger l'application</button>
+  <button class="btn-dl" id="dlAppBtn">Télécharger l'application</button>
 </section>
 
 <!-- ═════════ FEATURES ═════════ -->
@@ -245,7 +281,7 @@ footer {
     <strong>zatovo rehetra Advantista eto Madagascar</strong>
     ho hahavita hianatra lesona impito ary hanampy azy ireo koa
     ho <strong>hanakaiky kokoa an'Andriamanitra</strong>.
-    Satria ny <span>ankamaroan'ny zatovo</span>
+    Satria ny <span style="font-weight:500">ankamaroan'ny zatovo</span>
     dia efa samy mampiasa finday avokoa —
     koa dia aoka hampiasaintsika izany ho fanatsarana ny fiainam-panahy.
   </p>
@@ -253,8 +289,11 @@ footer {
 
 <!-- ═════════ CLOSING ═════════ -->
 <section class="closing">
-  <h2 class="c-q">Ka na dia 5 minitra isan'andro aza <br><span class="c-sub">ve dia tsy ho foinao ho an'i Jesôsy?</span></h2>
-  <button class="btn-ghost">Télécharger l'APK Android</button>
+  <h2 class="c-q">
+    Ka na dia 5 minitra isan'andro aza
+    <span class="c-sub">ve dia tsy ho foinao ho an'i Jesôsy?</span>
+  </h2>
+  <button class="btn-ghost" id="dlApkBtn">Télécharger l'APK Android</button>
 </section>
 
 <!-- ═════════ FOOTER ═════════ -->
@@ -263,5 +302,32 @@ footer {
   <p class="ft-sub">Zatovo Miaradia aminJesosy · Madagascar · SDA</p>
 </footer>
 
+<script>
+  // Fikarakarana ny bokotra mba hisorohana ny "crash" sy hanomezana valiny rehefa tsy mbola misy ny rakitra
+  (function() {
+    const btnApp = document.getElementById('dlAppBtn');
+    const btnApk = document.getElementById('dlApkBtn');
+
+    function showNotAvailable() {
+      alert("⚠️ Ny fampidinana dia tsy mbola azo alaina. Ho avoaka tsy ho ela ny rohy fampidinana ofisialy. Misaotra ny faharetanao!");
+    }
+
+    if (btnApp) {
+      btnApp.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Raha tianao hampifandray amin'ny rohy tena izy dia soloina eto ny URL
+        // Ohatra: window.location.href = "https://votre-domaine.com/app.apk";
+        showNotAvailable();
+      });
+    }
+
+    if (btnApk) {
+      btnApk.addEventListener('click', (e) => {
+        e.preventDefault();
+        showNotAvailable();
+      });
+    }
+  })();
+</script>
 </body>
 </html>
