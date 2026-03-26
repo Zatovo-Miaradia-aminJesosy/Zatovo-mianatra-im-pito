@@ -4,890 +4,264 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Zatovo Mianatra im-pito</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet"/>
 <style>
 /* ══════════════════════════════════════════
-   TOKENS
+   TOKENS GRAYSCALE
 ══════════════════════════════════════════ */
 :root {
-  --g1: #FFF5B0;
-  --g2: #E8C040;
-  --g3: #C8940A;
-  --g4: #6A4800;
-  --glow-sm: rgba(232,192,64,0.14);
-  --glow-md: rgba(232,192,64,0.22);
-  --black:   #060608;
-  --black2:  #0C0C10;
-  --black3:  #101014;
-  --white:   #FDFDF9;
-  --w2: rgba(253,253,249,0.70);
-  --w3: rgba(253,253,249,0.35);
-  --w4: rgba(253,253,249,0.14);
+  --black: #000000;
+  --dark-gray: #222222;
+  --gray: #777777;
+  --light-gray: #CCCCCC;
+  --white: #FFFFFF;
 }
 
 /* ══════════════════════════════════════════
    RESET & BASE
 ══════════════════════════════════════════ */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  background:var(--black);
-  color:var(--white);
-  font-family:'EB Garamond',Georgia,serif;
-  overflow-x:hidden;
-  cursor:none;
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'EB Garamond', Georgia, serif;
+  overflow-x: hidden;
 }
 
 /* ══════════════════════════════════════════
-   CUSTOM CURSOR
+   HERO SECTION
 ══════════════════════════════════════════ */
-#cur{
-  width:7px;height:7px;
-  background:var(--g2);
-  border-radius:50%;
-  position:fixed;top:0;left:0;
-  pointer-events:none;z-index:9999;
-  transform:translate(-50%,-50%);
-  transition:transform .12s,width .3s,height .3s;
-  mix-blend-mode:screen;
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.5rem 7rem;
 }
-#ring{
-  width:30px;height:30px;
-  border:1px solid rgba(232,192,64,.32);
-  border-radius:50%;
-  position:fixed;top:0;left:0;
-  pointer-events:none;z-index:9998;
-  transform:translate(-50%,-50%);
-  transition:width .3s,height .3s,border-color .3s;
+
+.hero-eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: .64rem;
+  letter-spacing: .44em;
+  text-transform: uppercase;
+  color: var(--light-gray);
+  margin-bottom: 2rem;
 }
-@media(max-width:768px){#cur,#ring,body{cursor:auto}#cur,#ring{display:none}}
+
+.hero-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 700;
+  font-size: clamp(2.8rem,10vw,5rem);
+  line-height: 1.1;
+  margin-bottom: .8rem;
+  color: var(--white);
+}
+
+.hero-sub {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1rem,2.4vw,1.5rem);
+  color: var(--gray);
+  margin: 1.4rem 0 2.6rem;
+}
+
+.hero-intro {
+  font-size: clamp(1.05rem,2vw,1.28rem);
+  line-height: 1.9;
+  color: var(--light-gray);
+  font-style: italic;
+  max-width: 610px;
+  margin: 0 auto 3.2rem;
+}
+.hero-intro strong { color: var(--white); font-style: normal; }
 
 /* ══════════════════════════════════════════
-   HERO — Pure CSS animated background
+   CTA BUTTON
 ══════════════════════════════════════════ */
-.hero{
-  position:relative;
-  min-height:100vh;
-  display:flex;align-items:center;justify-content:center;
-  overflow:hidden;
+.btn-dl, .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: .8rem;
+  padding: 1rem 2rem;
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: .85rem;
+  text-transform: uppercase;
+  border-radius: 2px;
+  border: 1px solid var(--gray);
+  background: var(--dark-gray);
+  color: var(--white);
+  cursor: pointer;
+  text-decoration: none;
 }
-
-/* ── Layer 1: deep gradient mesh ── */
-.hero::before{
-  content:'';
-  position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 120% 80% at 15% 20%, rgba(180,120,8,0.18) 0%, transparent 55%),
-    radial-gradient(ellipse 80% 60% at 85% 80%, rgba(140,90,5,0.12) 0%, transparent 55%),
-    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(100,60,3,0.08) 0%, transparent 65%),
-    linear-gradient(160deg, #08060A 0%, #0A0810 40%, #080610 70%, #050408 100%);
-  z-index:0;
-}
-
-/* ── Layer 2: animated aurora gold ── */
-.hero-aurora{
-  position:absolute;inset:0;z-index:1;pointer-events:none;
-  overflow:hidden;
-}
-.aurora-blob{
-  position:absolute;
-  border-radius:50%;
-  filter:blur(80px);
-  opacity:0;
-  animation:auroraIn 2s ease forwards;
-}
-.ab1{
-  width:600px;height:400px;
-  top:-10%;left:-8%;
-  background:radial-gradient(circle, rgba(200,148,10,0.12) 0%, transparent 70%);
-  animation: auroraIn 2s .2s ease forwards, floatA 18s 2.2s ease-in-out infinite alternate;
-}
-.ab2{
-  width:500px;height:500px;
-  bottom:-15%;right:-5%;
-  background:radial-gradient(circle, rgba(160,100,6,0.10) 0%, transparent 70%);
-  animation: auroraIn 2s .5s ease forwards, floatB 22s 2.5s ease-in-out infinite alternate;
-}
-.ab3{
-  width:350px;height:350px;
-  top:30%;left:55%;
-  background:radial-gradient(circle, rgba(232,192,64,0.07) 0%, transparent 70%);
-  animation: auroraIn 2s .8s ease forwards, floatC 16s 2.8s ease-in-out infinite alternate;
-}
-
-@keyframes auroraIn{to{opacity:1}}
-@keyframes floatA{
-  0%{transform:translate(0,0) scale(1)}
-  100%{transform:translate(60px,40px) scale(1.15)}
-}
-@keyframes floatB{
-  0%{transform:translate(0,0) scale(1)}
-  100%{transform:translate(-50px,-60px) scale(1.12)}
-}
-@keyframes floatC{
-  0%{transform:translate(0,0) scale(1)}
-  100%{transform:translate(30px,50px) scale(0.88)}
-}
-
-/* ── Layer 3: geometric grid ── */
-.hero-grid{
-  position:absolute;inset:0;z-index:2;pointer-events:none;
-  background-image:
-    linear-gradient(rgba(232,192,64,0.028) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(232,192,64,0.028) 1px, transparent 1px);
-  background-size:80px 80px;
-  mask-image:radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%);
-}
-
-/* ── Layer 4: canvas particles ── */
-#ptc{position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.65}
-
-/* ── Layer 5: bottom fade ── */
-.hero::after{
-  content:'';
-  position:absolute;bottom:0;left:0;right:0;
-  height:220px;
-  background:linear-gradient(to bottom, transparent, var(--black));
-  z-index:4;pointer-events:none;
-}
-
-/* ── Hero content ── */
-.hero-inner{
-  position:relative;z-index:5;
-  text-align:center;
-  padding:2rem 1.5rem 7rem;
-  max-width:900px;margin:0 auto;
-}
-
-/* Ornement */
-.ornament{
-  display:flex;align-items:center;justify-content:center;
-  gap:1rem;margin-bottom:2.8rem;
-  opacity:0;animation:up 1s .05s ease forwards;
-}
-.orn-l{width:52px;height:1px;background:linear-gradient(90deg,transparent,var(--g3))}
-.orn-l.r{background:linear-gradient(90deg,var(--g3),transparent)}
-.orn-d{
-  width:7px;height:7px;background:var(--g1);
-  transform:rotate(45deg);
-  box-shadow:0 0 10px var(--g2),0 0 20px rgba(232,192,64,.3);
-}
-.orn-d.sm{width:4px;height:4px;background:var(--g3);box-shadow:none}
-
-.hero-eyebrow{
-  font-family:'Cinzel',serif;
-  font-size:.64rem;letter-spacing:.44em;
-  text-transform:uppercase;color:var(--g2);
-  margin-bottom:2rem;
-  opacity:0;animation:up 1s .15s ease forwards;
-}
-
-.hero-title{
-  font-family:'Cinzel Decorative',serif;
-  font-weight:900;
-  font-size:clamp(2.8rem,10vw,7.5rem);
-  line-height:.9;letter-spacing:-.02em;
-  margin-bottom:.8rem;
-  opacity:0;animation:up 1.1s .25s ease forwards;
-}
-.hero-title .t1{
-  display:block;
-  background:linear-gradient(138deg,var(--g1) 0%,var(--g2) 35%,var(--g3) 65%,var(--g4) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  background-size:200% auto;
-  filter:drop-shadow(0 0 48px rgba(232,192,64,.44));
-  animation:up 1.1s .25s ease forwards, shimmer 4.5s 1.8s linear infinite;
-}
-.hero-title .t2{
-  display:block;
-  font-family:'Cinzel',serif;font-weight:400;
-  font-size:.48em;letter-spacing:.42em;
-  color:var(--w3);margin-top:.8rem;
-}
-
-.hero-sub{
-  font-family:'Cinzel Decorative',serif;
-  font-size:clamp(1rem,2.4vw,1.5rem);
-  background:linear-gradient(90deg,var(--g3),var(--g1),var(--g3));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  background-size:200% auto;
-  margin:1.4rem 0 2.6rem;
-  opacity:0;animation:up 1s .38s ease forwards,shimmer 5s 2s linear infinite;
-}
-
-.hero-intro{
-  font-size:clamp(1.05rem,2vw,1.28rem);
-  line-height:1.9;color:var(--w2);font-style:italic;
-  max-width:610px;margin:0 auto 3.2rem;
-  opacity:0;animation:up 1s .5s ease forwards;
-}
-.hero-intro strong{color:var(--g1);font-style:normal}
-
-/* ── CTA ── */
-.cta-zone{
-  opacity:0;animation:up 1s .65s ease forwards;
-}
-
-.btn-dl{
-  display:inline-flex;align-items:center;gap:.9rem;
-  padding:1.1rem 2.8rem;
-  background:linear-gradient(138deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);
-  color:#18100000;/* transparent trick for gradient text */
-  font-family:'Cinzel',serif;
-  font-size:.86rem;font-weight:700;
-  letter-spacing:.18em;text-transform:uppercase;
-  text-decoration:none;border-radius:2px;
-  position:relative;overflow:hidden;
-  box-shadow:0 0 0 1px rgba(255,240,160,.4),0 8px 40px rgba(200,148,10,.4),0 2px 8px rgba(0,0,0,.7);
-  transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s ease;
-  cursor:pointer;border:none;
-  color:#1A1000;/* reset */
-}
-.btn-dl::before{
-  content:'';
-  position:absolute;top:0;left:-100%;
-  width:55%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.26),transparent);
-  transform:skewX(-18deg);
-  transition:left .65s ease;
-}
-.btn-dl:hover::before{left:170%}
-.btn-dl:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 0 1px rgba(255,240,160,.85),0 18px 60px rgba(200,148,10,.55),0 4px 16px rgba(0,0,0,.6);
-}
-.btn-dl:active{transform:translateY(-1px)}
-
-/* Download status */
-.dl-status{
-  margin-top:1.2rem;
-  font-family:'Cinzel',serif;
-  font-size:.65rem;letter-spacing:.22em;
-  color:rgba(232,192,64,.5);
-  min-height:1.2em;
-  transition:opacity .3s;
-}
-
-/* Progress bar */
-.dl-bar-wrap{
-  width:220px;height:2px;
-  background:rgba(232,192,64,.12);
-  margin:.6rem auto 0;
-  display:none;border-radius:2px;
-  overflow:hidden;
-}
-.dl-bar{
-  height:100%;width:0%;
-  background:linear-gradient(90deg,var(--g3),var(--g1));
-  transition:width .3s ease;
-  border-radius:2px;
-}
-
-/* Scroll cue */
-.scroll-cue{
-  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
-  z-index:5;display:flex;flex-direction:column;align-items:center;gap:.6rem;
-  opacity:0;animation:up 1s 1.4s ease forwards;
-}
-.scroll-cue span{
-  font-family:'Cinzel',serif;font-size:.55rem;
-  letter-spacing:.32em;text-transform:uppercase;
-  color:rgba(232,192,64,.38);
-}
-.sc-bar{
-  width:1px;height:44px;
-  background:linear-gradient(to bottom,var(--g3),transparent);
-  animation:scPulse 2.4s ease-in-out infinite;
-}
-@keyframes scPulse{
-  0%,100%{opacity:.25;transform:scaleY(.8) translateY(-4px)}
-  55%{opacity:.8;transform:scaleY(1) translateY(0)}
-}
+.btn-dl svg, .btn-ghost svg { fill: var(--white); }
 
 /* ══════════════════════════════════════════
-   FEATURES SECTION
+   FEATURES
 ══════════════════════════════════════════ */
-.features{
-  position:relative;z-index:1;
-  padding:7rem 1.5rem;
-  max-width:1140px;margin:0 auto;
+.features {
+  padding: 5rem 1.5rem;
+  max-width: 1140px;
+  margin: 0 auto;
 }
 
-.sec-tag{
-  font-family:'Cinzel',serif;
-  font-size:.6rem;letter-spacing:.36em;
-  text-transform:uppercase;color:var(--g3);margin-bottom:1rem;
-}
-.sec-h{
-  font-family:'Cinzel',serif;
-  font-size:clamp(1.6rem,4vw,2.7rem);
-  font-weight:700;line-height:1.2;
-  max-width:480px;margin-bottom:3.8rem;
-}
-.sec-h .g{
-  background:linear-gradient(135deg,var(--g1),var(--g2));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+.sec-tag {
+  font-family: 'Cinzel', serif;
+  font-size: .6rem;
+  letter-spacing: .36em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 1rem;
 }
 
-/* Bento grid */
-.feat-grid{
-  display:grid;
-  grid-template-columns:repeat(12,1fr);
-  gap:2px;
-  background:rgba(232,192,64,.05);
-  border:1px solid rgba(232,192,64,.07);
+.sec-h {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.6rem,4vw,2.7rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 3rem;
+  color: var(--white);
 }
-.fc:nth-child(1){grid-column:span 7}
-.fc:nth-child(2){grid-column:span 5}
-.fc:nth-child(3){grid-column:span 5}
-.fc:nth-child(4){grid-column:span 7}
 
-.fc{
-  background:var(--black2);
-  padding:2.8rem 2.2rem;
-  position:relative;overflow:hidden;
-  transition:background .4s;
+.feat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 1rem;
 }
-.fc::after{
-  content:'';
-  position:absolute;top:0;left:0;right:0;height:1.5px;
-  background:linear-gradient(90deg,transparent,var(--g1),var(--g2),transparent);
-  transform:scaleX(0);
-  transition:transform .5s cubic-bezier(.22,1,.36,1);
-}
-.fc::before{
-  content:'';
-  position:absolute;bottom:-80px;right:-80px;
-  width:240px;height:240px;
-  background:radial-gradient(circle,var(--glow-sm) 0%,transparent 70%);
-  opacity:0;transition:opacity .4s;
-}
-.fc:hover{background:#0E0E12}
-.fc:hover::after{transform:scaleX(1)}
-.fc:hover::before{opacity:1}
 
-.fc-num{
-  font-family:'Cinzel',serif;
-  font-size:.57rem;letter-spacing:.24em;
-  color:var(--g4);margin-bottom:1.8rem;
+.fc {
+  background: var(--dark-gray);
+  padding: 2rem;
+  border-radius: 4px;
 }
-.fc-icon{
-  width:46px;height:46px;
-  border:1px solid rgba(232,192,64,.10);
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:1.6rem;
-  transition:border-color .3s;
-}
-.fc:hover .fc-icon{border-color:rgba(232,192,64,.28)}
-.fc-icon svg{color:var(--g2)}
-
-.fc-name{
-  font-family:'Cinzel',serif;
-  font-size:1rem;font-weight:600;
-  letter-spacing:.04em;margin-bottom:.9rem;
-}
-.fc-text{
-  font-size:1.05rem;line-height:1.78;color:var(--w2);
-}
+.fc-num { font-size: .65rem; color: var(--gray); margin-bottom: 1rem; }
+.fc-name { font-family: 'Cinzel', serif; font-weight: 600; margin-bottom: .5rem; color: var(--white); }
+.fc-text { font-size: 1rem; color: var(--light-gray); }
 
 /* ══════════════════════════════════════════
    MISSION SECTION
 ══════════════════════════════════════════ */
-.mission{
-  position:relative;z-index:1;
-  background:var(--black3);
-  border-top:1px solid rgba(232,192,64,.055);
-  border-bottom:1px solid rgba(232,192,64,.055);
-  overflow:hidden;
-}
-.mission::after{
-  content:'';
-  position:absolute;top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  width:700px;height:500px;
-  background:radial-gradient(ellipse,rgba(200,148,10,.062) 0%,transparent 70%);
-  pointer-events:none;
-}
-.mission-inner{
-  position:relative;z-index:1;
-  max-width:820px;margin:0 auto;
-  padding:7rem 2rem;text-align:center;
+.mission {
+  background: var(--black);
+  border-top: 1px solid var(--dark-gray);
+  border-bottom: 1px solid var(--dark-gray);
+  padding: 5rem 2rem;
+  text-align: center;
 }
 
-.divider{
-  display:flex;align-items:center;justify-content:center;
-  gap:1.2rem;margin-bottom:3.5rem;
+.mission-text {
+  font-size: clamp(1.18rem,2.6vw,1.6rem);
+  line-height: 1.9;
+  font-style: italic;
+  color: var(--light-gray);
+  max-width: 820px;
+  margin: 0 auto;
 }
-.dv-l{flex:1;max-width:110px;height:1px;background:linear-gradient(90deg,transparent,var(--g4))}
-.dv-l.r{background:linear-gradient(90deg,var(--g4),transparent)}
-.dv-x{position:relative;width:16px;height:16px}
-.dv-x::before,.dv-x::after{content:'';position:absolute;background:var(--g3)}
-.dv-x::before{width:1px;height:16px;left:50%;top:0}
-.dv-x::after{width:16px;height:1px;top:50%;left:0}
-
-.mission-text{
-  font-size:clamp(1.18rem,2.6vw,1.6rem);
-  line-height:1.9;font-style:italic;color:var(--w2);
-}
-.mission-text strong{color:var(--white);font-style:normal}
-.mission-text .hl{color:var(--g1);font-style:normal}
+.mission-text strong { color: var(--white); font-style: normal; }
 
 /* ══════════════════════════════════════════
    CLOSING
 ══════════════════════════════════════════ */
-.closing{
-  position:relative;z-index:1;
-  text-align:center;
-  padding:8rem 1.5rem 5.5rem;
-  overflow:hidden;
+.closing {
+  text-align: center;
+  padding: 6rem 1.5rem 5rem;
 }
-.closing::after{
-  content:'';
-  position:absolute;top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  width:900px;height:600px;
-  background:radial-gradient(ellipse,rgba(200,148,10,.042) 0%,transparent 65%);
-  pointer-events:none;
+.c-q {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1.3rem,3.8vw,2.4rem);
+  line-height: 1.42;
+  color: var(--white);
+  margin-bottom: .8rem;
 }
-
-.c-stars{
-  font-size:.95rem;
-  color:var(--g3);letter-spacing:.9em;
-  opacity:.42;margin-bottom:2.8rem;
-}
-.c-q{
-  font-family:'Cinzel Decorative',serif;
-  font-size:clamp(1.3rem,3.8vw,2.4rem);
-  font-weight:400;line-height:1.42;
-  max-width:760px;margin:0 auto .8rem;
-}
-.c-q .em{
-  display:block;
-  font-family:'EB Garamond',serif;
-  font-style:italic;font-size:1.12em;
-  background:linear-gradient(90deg,var(--g2),var(--g1),var(--g2));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  background-size:200% auto;
-  animation:shimmer 3.8s .4s linear infinite;
-  margin-top:.5rem;
-}
-.c-sub{
-  font-size:1.05rem;color:var(--w3);
-  font-style:italic;margin-bottom:3.5rem;
-}
-
-.btn-ghost{
-  display:inline-flex;align-items:center;gap:.85rem;
-  padding:.95rem 2.4rem;
-  border:1px solid var(--g4);color:var(--g2);
-  font-family:'Cinzel',serif;
-  font-size:.8rem;font-weight:600;
-  letter-spacing:.16em;text-transform:uppercase;
-  text-decoration:none;border-radius:2px;
-  position:relative;overflow:hidden;
-  transition:all .35s ease;
-  cursor:pointer;background:transparent;
-}
-.btn-ghost::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(200,148,10,.10),transparent);
-  opacity:0;transition:opacity .3s;
-}
-.btn-ghost:hover{
-  border-color:var(--g2);color:var(--g1);
-  box-shadow:0 0 36px rgba(200,148,10,.16),inset 0 0 28px rgba(200,148,10,.04);
-}
-.btn-ghost:hover::before{opacity:1}
+.c-sub { font-size: 1rem; color: var(--gray); font-style: italic; margin-bottom: 3rem; }
 
 /* ══════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════ */
-footer{
-  position:relative;z-index:1;
-  border-top:1px solid rgba(232,192,64,.055);
-  padding:2.2rem 1.5rem;text-align:center;
+footer {
+  border-top: 1px solid var(--dark-gray);
+  padding: 2rem 1.5rem;
+  text-align: center;
 }
-.ft-name{
-  font-family:'Cinzel Decorative',serif;
-  font-size:.7rem;letter-spacing:.22em;
-  color:var(--g4);margin-bottom:.5rem;
-}
-.ft-sub{
-  font-family:'Cinzel',serif;
-  font-size:.58rem;letter-spacing:.18em;
-  color:rgba(253,253,249,.16);
-}
-
-/* ══════════════════════════════════════════
-   SCROLL REVEAL
-══════════════════════════════════════════ */
-.sr{
-  opacity:0;transform:translateY(34px);
-  transition:opacity .9s cubic-bezier(.22,1,.36,1),
-              transform .9s cubic-bezier(.22,1,.36,1);
-}
-.sr.v{opacity:1;transform:translateY(0)}
-.d1{transition-delay:.10s}.d2{transition-delay:.20s}
-.d3{transition-delay:.30s}.d4{transition-delay:.40s}
-
-/* ══════════════════════════════════════════
-   KEYFRAMES
-══════════════════════════════════════════ */
-@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-@keyframes shimmer{0%{background-position:0% center}100%{background-position:200% center}}
+.ft-name { font-family: 'Cinzel Decorative', serif; font-size: .7rem; color: var(--white); margin-bottom: .5rem; }
+.ft-sub { font-family: 'Cinzel', serif; font-size: .58rem; color: var(--gray); }
 
 /* ══════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════ */
 @media(max-width:768px){
-  .fc:nth-child(1),.fc:nth-child(2),.fc:nth-child(3),.fc:nth-child(4){grid-column:span 12}
+  .feat-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
-<div id="cur"></div>
-<div id="ring"></div>
-<canvas id="ptc"></canvas>
-
-<!-- ══════════════════════ HERO ══════════════════════ -->
+<!-- ═════════ HERO ═════════ -->
 <section class="hero">
-
-  <!-- CSS animated background layers -->
-  <div class="hero-aurora">
-    <div class="aurora-blob ab1"></div>
-    <div class="aurora-blob ab2"></div>
-    <div class="aurora-blob ab3"></div>
-  </div>
-  <div class="hero-grid"></div>
-
-  <div class="hero-inner">
-
-    <div class="ornament">
-      <div class="orn-l"></div>
-      <div class="orn-d"></div>
-      <div class="orn-d sm"></div>
-      <div class="orn-d"></div>
-      <div class="orn-l r"></div>
-    </div>
-
-    <p class="hero-eyebrow">Lesona Sekoly Sabata &nbsp;·&nbsp; Zatovo SDA Madagascar</p>
-
-    <h1 class="hero-title">
-      <span class="t1">Zatovo Mianatra</span>
-      <span class="t2">im &nbsp;·&nbsp; pito</span>
-    </h1>
-
-    <p class="hero-sub">15 – 18 taona</p>
-
-    <p class="hero-intro">
-      Miarahaba antsika rehetra, indrindra fa ny <strong>zatovo</strong>.
-      Ity tranonkala ity dia natao hizarana na hisintonana ny application
-      <strong>Lesona Sekoly Sabata</strong> ho an'ny zatovo 15 hatramin'ny 18 taona.
-    </p>
-
-    <div class="cta-zone">
-      <button class="btn-dl" onclick="startDownload(this)">
-        <!-- Android icon -->
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M17.52 15.34a1 1 0 0 1-1-1 1 1 0 0 1 2 0 1 1 0 0 1-1 1Zm-11.04 0a1 1 0 0 1-1-1 1 1 0 0 1 2 0 1 1 0 0 1-1 1ZM17.87 8.4 19.84 5a.41.41 0 0 0-.71-.41L17.1 7.62A11.62 11.62 0 0 0 12 6.55a11.62 11.62 0 0 0-5.1 1.07L4.87 4.59a.41.41 0 0 0-.71.41L6.13 8.4C3.58 9.88 1.83 12.47 1.5 15.5h21c-.33-3.03-2.08-5.62-4.63-7.1Z"/>
-        </svg>
-        Télécharger l'application
-      </button>
-
-      <div class="dl-status" id="dlStatus"></div>
-      <div class="dl-bar-wrap" id="dlBarWrap">
-        <div class="dl-bar" id="dlBar"></div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="scroll-cue">
-    <span>Scroll</span>
-    <div class="sc-bar"></div>
-  </div>
+  <p class="hero-eyebrow">Lesona Sekoly Sabata &nbsp;·&nbsp; Zatovo SDA Madagascar</p>
+  <h1 class="hero-title">Zatovo Mianatra <br><span class="hero-sub">im · pito</span></h1>
+  <p class="hero-intro">
+    Miarahaba antsika rehetra, indrindra fa ny <strong>zatovo</strong>.
+    Ity tranonkala ity dia natao hizarana na hisintonana ny application
+    <strong>Lesona Sekoly Sabata</strong> ho an'ny zatovo 15 hatramin'ny 18 taona.
+  </p>
+  <button class="btn-dl">Télécharger l'application</button>
 </section>
 
-<!-- ══════════════════════ FEATURES ══════════════════════ -->
+<!-- ═════════ FEATURES ═════════ -->
 <section class="features">
-  <div class="sr">
-    <p class="sec-tag">Fonctionnalité</p>
-    <h2 class="sec-h">Ny rehetra ilainao<br><span class="g">ao anaty iray</span></h2>
-  </div>
-
+  <p class="sec-tag">Fonctionnalité</p>
+  <h2 class="sec-h">Ny rehetra ilainao ao anaty iray</h2>
   <div class="feat-grid">
-    <div class="fc sr d1">
-      <p class="fc-num">01 &nbsp;/&nbsp; 04</p>
-      <div class="fc-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/>
-        </svg>
-      </div>
+    <div class="fc">
+      <p class="fc-num">01 / 04</p>
       <h3 class="fc-name">Lesona Rehetra</h3>
       <p class="fc-text">Ahitana ny lesona rehetra Q1 ka hatramin'ny Q4, voalamina tsara ary mora tadiavina — na misy internet na tsia.</p>
     </div>
-
-    <div class="fc sr d2">
-      <p class="fc-num">02 &nbsp;/&nbsp; 04</p>
-      <div class="fc-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z"/>
-        </svg>
-      </div>
+    <div class="fc">
+      <p class="fc-num">02 / 04</p>
       <h3 class="fc-name">Famintinana Isam-bentin'andro</h3>
       <p class="fc-text">Ireo famintinana isakin'ny lesona tsirairay mba hahasarika anao ary hahatonga anao hihevitra lalina kokoa ny hafatra.</p>
     </div>
-
-    <div class="fc sr d3">
-      <p class="fc-num">03 &nbsp;/&nbsp; 04</p>
-      <div class="fc-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/>
-        </svg>
-      </div>
+    <div class="fc">
+      <p class="fc-num">03 / 04</p>
       <h3 class="fc-name">Tahiry Lesona Taloha</h3>
       <p class="fc-text">Ahitana ireo tahirindesona rehetra tany aloha — taona isam-taona voalamina tsara ary mora fitrandraka.</p>
     </div>
-
-    <div class="fc sr d4">
-      <p class="fc-num">04 &nbsp;/&nbsp; 04</p>
-      <div class="fc-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42"/>
-        </svg>
-      </div>
-      <h3 class="fc-name">Surlignage &amp; Commentaire</h3>
+    <div class="fc">
+      <p class="fc-num">04 / 04</p>
+      <h3 class="fc-name">Surlignage & Commentaire</h3>
       <p class="fc-text">Manamora ny fianarana satria misy surlignage sy commentaire mba hahafahana mahatadidy mora foana ny teny manandanja.</p>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════ TANJONA ══════════════════════ -->
+<!-- ═════════ MISSION ═════════ -->
 <section class="mission">
-  <div class="mission-inner">
-    <div class="divider sr">
-      <div class="dv-l"></div><div class="dv-x"></div><div class="dv-l r"></div>
-    </div>
-    <p class="sec-tag sr" style="margin-bottom:1.6rem">Tanjona</p>
-    <p class="mission-text sr d1">
-      Ny tanjonay dia ny mba hahatonga ny
-      <strong>zatovo rehetra Advantista eto Madagascar</strong>
-      ho hahavita hianatra lesona impito ary hanampy azy ireo koa
-      ho <strong>hanakaiky kokoa an'Andriamanitra</strong>.
-      Satria ny <span class="hl">ankamaroan'ny zatovo</span>
-      dia efa samy mampiasa finday avokoa —
-      koa dia aoka hampiasaintsika izany ho fanatsarana ny fiainam-panahy.
-    </p>
-    <div class="divider sr d2" style="margin-top:3.5rem;margin-bottom:0">
-      <div class="dv-l"></div><div class="dv-x"></div><div class="dv-l r"></div>
-    </div>
-  </div>
+  <p class="sec-tag">Tanjona</p>
+  <p class="mission-text">
+    Ny tanjonay dia ny mba hahatonga ny
+    <strong>zatovo rehetra Advantista eto Madagascar</strong>
+    ho hahavita hianatra lesona impito ary hanampy azy ireo koa
+    ho <strong>hanakaiky kokoa an'Andriamanitra</strong>.
+    Satria ny <span>ankamaroan'ny zatovo</span>
+    dia efa samy mampiasa finday avokoa —
+    koa dia aoka hampiasaintsika izany ho fanatsarana ny fiainam-panahy.
+  </p>
 </section>
 
-<!-- ══════════════════════ CLOSING ══════════════════════ -->
+<!-- ═════════ CLOSING ═════════ -->
 <section class="closing">
-  <p class="c-stars sr">✦ &nbsp; ✦ &nbsp; ✦</p>
-  <h2 class="c-q sr d1">
-    Ka na dia 5 minitra isan'andro aza
-    <span class="em">ve dia tsy ho foinao ho an'i Jesôsy?</span>
-  </h2>
-  <p class="c-sub sr d2">Alaivo ny dingana voalohany ankehitriny.</p>
-  <div class="sr d3">
-    <button class="btn-ghost" onclick="startDownload(this)">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M17.52 15.34a1 1 0 0 1-1-1 1 1 0 0 1 2 0 1 1 0 0 1-1 1Zm-11.04 0a1 1 0 0 1-1-1 1 1 0 0 1 2 0 1 1 0 0 1-1 1ZM17.87 8.4 19.84 5a.41.41 0 0 0-.71-.41L17.1 7.62A11.62 11.62 0 0 0 12 6.55a11.62 11.62 0 0 0-5.1 1.07L4.87 4.59a.41.41 0 0 0-.71.41L6.13 8.4C3.58 9.88 1.83 12.47 1.5 15.5h21c-.33-3.03-2.08-5.62-4.63-7.1Z"/>
-      </svg>
-      Télécharger l'APK Android
-    </button>
-  </div>
+  <h2 class="c-q">Ka na dia 5 minitra isan'andro aza <br><span class="c-sub">ve dia tsy ho foinao ho an'i Jesôsy?</span></h2>
+  <button class="btn-ghost">Télécharger l'APK Android</button>
 </section>
 
-<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<!-- ═════════ FOOTER ═════════ -->
 <footer>
   <p class="ft-name">Zatovo Mianatra im-pito</p>
-  <p class="ft-sub">Zatovo Miaradia aminJesosy &nbsp;·&nbsp; Madagascar &nbsp;·&nbsp; SDA</p>
+  <p class="ft-sub">Zatovo Miaradia aminJesosy · Madagascar · SDA</p>
 </footer>
 
-<script>
-/* ══ CONFIG ══ */
-const GITHUB_OWNER = 'Zatovo-Miaradia-aminJesosy';
-const GITHUB_REPO  = 'Zatovo-mianatra-im-pito';
-const API_URL = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/releases/latest`;
-
-/* ══ CURSOR ══ */
-const cur  = document.getElementById('cur');
-const ring = document.getElementById('ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{ mx=e.clientX; my=e.clientY; });
-(function tick(){
-  rx+=(mx-rx)*.13; ry+=(my-ry)*.13;
-  cur.style.cssText  = `left:${mx}px;top:${my}px`;
-  ring.style.cssText = `left:${rx}px;top:${ry}px`;
-  requestAnimationFrame(tick);
-})();
-document.querySelectorAll('button,.fc').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{
-    cur.style.transform='translate(-50%,-50%) scale(2.2)';
-    ring.style.width=ring.style.height='50px';
-    ring.style.borderColor='rgba(232,192,64,.6)';
-  });
-  el.addEventListener('mouseleave',()=>{
-    cur.style.transform='translate(-50%,-50%) scale(1)';
-    ring.style.width=ring.style.height='30px';
-    ring.style.borderColor='rgba(232,192,64,.32)';
-  });
-});
-
-/* ══ PARTICLES ══ */
-const cv=document.getElementById('ptc');
-const cx=cv.getContext('2d');
-let W,H;
-const rsz=()=>{ W=cv.width=innerWidth; H=cv.height=innerHeight; };
-rsz(); addEventListener('resize',rsz);
-
-class P{
-  constructor(){ this.init(); }
-  init(){
-    this.x=Math.random()*W; this.y=Math.random()*H;
-    this.r=Math.random()*1.2+.22;
-    this.vx=(Math.random()-.5)*.14;
-    this.vy=-Math.random()*.28-.08;
-    this.a=0; this.ma=Math.random()*.48+.12;
-    this.life=0; this.ml=Math.random()*240+90;
-    const h=38+Math.random()*16,s=65+Math.random()*30,l=50+Math.random()*30;
-    this.c=`hsl(${h},${s}%,${l}%)`;
-  }
-  step(){
-    this.x+=this.vx; this.y+=this.vy; this.life++;
-    const t=this.life/this.ml;
-    this.a=t<.25?t/.25*this.ma:t>.75?(1-t)/.25*this.ma:this.ma;
-    if(this.life>=this.ml) this.init();
-  }
-  draw(){
-    cx.save(); cx.globalAlpha=this.a;
-    cx.fillStyle=this.c; cx.shadowBlur=6; cx.shadowColor=this.c;
-    cx.beginPath(); cx.arc(this.x,this.y,this.r,0,Math.PI*2); cx.fill();
-    cx.restore();
-  }
-}
-
-const pts=Array.from({length:90},()=>{ const p=new P(); p.life=Math.random()*p.ml|0; return p; });
-(function frame(){ cx.clearRect(0,0,W,H); pts.forEach(p=>{p.step();p.draw();}); requestAnimationFrame(frame); })();
-
-/* ══ SCROLL REVEAL ══ */
-const obs=new IntersectionObserver(es=>{
-  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('v'); obs.unobserve(e.target); }});
-},{threshold:.10});
-document.querySelectorAll('.sr').forEach(el=>obs.observe(el));
-
-/* ══ IN-PAGE DOWNLOAD ══
-   1. Fetch latest release via GitHub API
-   2. Find the .apk asset
-   3. Download as blob → trigger <a download>
-   Page never leaves, URL never changes.
-═══════════════════════════════════════ */
-const status  = document.getElementById('dlStatus');
-const barWrap = document.getElementById('dlBarWrap');
-const bar     = document.getElementById('dlBar');
-
-let downloading = false;
-
-async function startDownload(btn) {
-  if (downloading) return;
-  downloading = true;
-
-  // UI: loading state
-  setStatus('Mitady ny version farany…', 'pending');
-  btn.style.opacity = '.7';
-  btn.style.pointerEvents = 'none';
-
-  try {
-    // 1. Get latest release metadata
-    const meta = await fetch(API_URL, {
-      headers: { 'Accept': 'application/vnd.github+json' }
-    });
-    if (!meta.ok) throw new Error('GitHub API: ' + meta.status);
-    const release = await meta.json();
-
-    // 2. Find .apk asset
-    const apk = release.assets.find(a =>
-      a.name.toLowerCase().endsWith('.apk') ||
-      a.content_type === 'application/vnd.android.package-archive'
-    );
-    if (!apk) throw new Error('Tsy hita ny fichier APK.');
-
-    const fileName = apk.name;
-    const dlUrl    = apk.browser_download_url;
-
-    // 3. Fetch with progress
-    setStatus(`Mampiditra: ${fileName}`, 'pending');
-    barWrap.style.display = 'block';
-
-    const resp = await fetch(dlUrl);
-    if (!resp.ok) throw new Error('Download error: ' + resp.status);
-
-    const total  = parseInt(resp.headers.get('content-length') || '0');
-    const reader = resp.body.getReader();
-    const chunks = [];
-    let received = 0;
-
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      chunks.push(value);
-      received += value.length;
-      if (total > 0) {
-        const pct = Math.round((received / total) * 100);
-        bar.style.width = pct + '%';
-        setStatus(`Mampiditra… ${pct}%`, 'pending');
-      } else {
-        bar.style.width = '60%'; // indeterminate
-      }
-    }
-
-    // 4. Create blob & trigger download
-    bar.style.width = '100%';
-    const blob = new Blob(chunks, { type: 'application/vnd.android.package-archive' });
-    const blobUrl = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = blobUrl;
-    a.download = fileName;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    setTimeout(() => URL.revokeObjectURL(blobUrl), 5000);
-
-    // 5. Success
-    setStatus('✦ Vita! Apetraho ao amin\'ny finday.', 'done');
-    setTimeout(() => resetDownload(btn), 5000);
-
-  } catch (err) {
-    console.error(err);
-    setStatus('Nisy olana: ' + err.message, 'error');
-    setTimeout(() => resetDownload(btn), 4000);
-  }
-}
-
-function setStatus(msg, type) {
-  if (!status) return;
-  status.textContent = msg;
-  status.style.color =
-    type === 'done'  ? 'rgba(200,255,180,.7)' :
-    type === 'error' ? 'rgba(255,160,120,.7)' :
-    'rgba(232,192,64,.5)';
-}
-
-function resetDownload(btn) {
-  downloading = false;
-  btn.style.opacity = '1';
-  btn.style.pointerEvents = 'auto';
-  setStatus('', '');
-  barWrap.style.display = 'none';
-  bar.style.width = '0%';
-}
-</script>
 </body>
 </html>
