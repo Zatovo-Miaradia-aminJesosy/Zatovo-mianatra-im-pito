@@ -6,494 +6,520 @@
 <title>Zatovo Mianatra im-pito | Lesona Sekoly Sabata</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-
-/* ══════════════════════════════════════════
-   TOKENS
-══════════════════════════════════════════ */
 :root {
-  --black:       #111111;
-  --dark:        #2a2a2a;
-  --mid:         #555555;
-  --muted:       #888888;
-  --border:      #e0e0e0;
-  --bg-subtle:   #f7f7f7;
-  --white:       #ffffff;
-
-  --font-serif:  'EB Garamond', Georgia, serif;
-  --font-display:'Cinzel', Georgia, serif;
+  --black:     #0a0a0a;
+  --dark:      #1a1a1a;
+  --mid:       #4a4a4a;
+  --muted:     #8a8a8a;
+  --subtle:    #b0b0b0;
+  --border:    #e8e8e8;
+  --bg-card:   #f9f9f9;
+  --bg-hover:  #f3f3f3;
+  --white:     #ffffff;
+  --font-display: 'Cinzel', Georgia, serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+  --radius:    10px;
+  --radius-sm: 6px;
+  --shadow-lg: 0 4px 6px rgba(0,0,0,.06), 0 12px 28px rgba(0,0,0,.09);
 }
-
-/* ══════════════════════════════════════════
-   RESET & BASE
-══════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-
 body {
   background: var(--white);
   color: var(--dark);
-  font-family: var(--font-serif);
-  font-size: 18px;
-  line-height: 1.75;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ══════════════════════════════════════════
-   NAV / TOPBAR
-══════════════════════════════════════════ */
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-  padding: 0.9rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.topbar-brand {
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--black);
-  text-decoration: none;
-}
-
-.topbar-dl {
-  font-family: var(--font-display);
-  font-size: 0.65rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--white);
-  background: var(--black);
-  border: none;
-  padding: 0.55rem 1.1rem;
-  border-radius: 2px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.2s;
-}
-.topbar-dl:hover { background: var(--mid); }
-
-/* ══════════════════════════════════════════
-   HERO
-══════════════════════════════════════════ */
-.hero {
-  padding: 5rem 1.5rem 5rem;
-  max-width: 860px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.hero-eyebrow {
-  font-family: var(--font-display);
-  font-size: 0.65rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 2rem;
-}
-
-.hero-title {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(2.4rem, 8vw, 4.5rem);
-  line-height: 1.15;
-  color: var(--black);
-  margin-bottom: 0.4rem;
-}
-
-.hero-sub {
-  display: block;
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(1rem, 2.5vw, 1.4rem);
-  color: var(--muted);
-  margin-top: 0.6rem;
-  letter-spacing: 0.1em;
-}
-
-.hero-intro {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  font-style: italic;
-  line-height: 1.85;
-  color: var(--mid);
-  max-width: 600px;
-  margin: 2rem auto 2.8rem;
-}
-.hero-intro strong {
-  color: var(--black);
-  font-style: normal;
-  font-weight: 600;
-}
-
-.hero-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--white);
-  background: var(--black);
-  border: none;
-  padding: 0.9rem 2rem;
-  border-radius: 2px;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.15s;
-  text-decoration: none;
-}
-.hero-cta:hover {
-  background: var(--dark);
-  transform: translateY(-1px);
-}
-
-/* ══════════════════════════════════════════
-   DIVIDER
-══════════════════════════════════════════ */
-.divider {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 0;
-}
-
-/* ══════════════════════════════════════════
-   FEATURES
-══════════════════════════════════════════ */
-.features {
-  padding: 5rem 1.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.sec-tag {
-  font-family: var(--font-display);
-  font-size: 0.6rem;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 0.8rem;
-}
-
-.sec-h {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3.5vw, 2.4rem);
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--black);
-  margin-bottom: 3rem;
-}
-
-.feat-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.fc {
-  background: var(--white);
-  padding: 2rem 1.75rem;
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  transition: background 0.2s;
-}
-.fc:hover { background: var(--bg-subtle); }
-/* remove right border on 2nd column */
-.fc:nth-child(2n)  { border-right: none; }
-/* remove bottom border on last row */
-.fc:nth-last-child(-n+2) { border-bottom: none; }
-
-.fc-num {
-  font-family: var(--font-display);
-  font-size: 0.6rem;
-  letter-spacing: 0.14em;
-  color: var(--muted);
-  margin-bottom: 0.9rem;
-}
-.fc-name {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--black);
-  margin-bottom: 0.6rem;
-  line-height: 1.3;
-}
-.fc-text {
-  font-size: 0.95rem;
-  color: var(--mid);
+  font-family: var(--font-body);
+  font-size: 16px;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-/* ══════════════════════════════════════════
-   MISSION
-══════════════════════════════════════════ */
-.mission {
-  background: var(--bg-subtle);
-  border-top: 1px solid var(--border);
+/* ANIMATION */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade { opacity: 0; animation: fadeUp 0.55s ease forwards; }
+.d1 { animation-delay: 0.05s; }
+.d2 { animation-delay: 0.15s; }
+.d3 { animation-delay: 0.25s; }
+.d4 { animation-delay: 0.38s; }
+.d5 { animation-delay: 0.50s; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
-  padding: 5rem 1.5rem;
-  text-align: center;
+  padding: 0 1.5rem; height: 58px;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.nav-brand { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; }
+.nav-logo {
+  width: 30px; height: 30px; background: var(--black);
+  border-radius: 7px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.nav-logo svg { width: 16px; height: 16px; fill: white; }
+.nav-name {
+  font-family: var(--font-display); font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); white-space: nowrap;
+}
+.nav-btn {
+  font-family: var(--font-body); font-size: 0.82rem; font-weight: 600;
+  color: var(--white); background: var(--black); border: none;
+  padding: 0.5rem 1.1rem; border-radius: var(--radius-sm);
+  cursor: pointer; white-space: nowrap; transition: opacity .15s, transform .15s;
+}
+.nav-btn:hover { opacity: 0.82; transform: translateY(-1px); }
+
+/* HERO */
+.hero {
+  padding: 5.5rem 1.5rem 5rem; max-width: 780px;
+  margin: 0 auto; text-align: center;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.76rem; font-weight: 500; color: var(--mid);
+  background: var(--bg-card); border: 1px solid var(--border);
+  padding: 0.3rem 0.8rem; border-radius: 100px; margin-bottom: 2rem;
+}
+.hero-badge span { color: var(--muted); }
+.hero-title {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(2.6rem, 8vw, 4.8rem); line-height: 1.1;
+  color: var(--black); margin-bottom: 0.35rem;
+}
+.hero-sub {
+  display: block; font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(1rem, 2.5vw, 1.35rem); color: var(--muted);
+  margin-top: 0.5rem; letter-spacing: 0.12em;
+}
+.hero-desc {
+  font-size: clamp(0.98rem, 1.8vw, 1.1rem); line-height: 1.75;
+  color: var(--mid); max-width: 580px; margin: 2rem auto 2.8rem;
+}
+.hero-desc strong { color: var(--black); font-weight: 600; }
+.hero-actions {
+  display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: center; gap: 0.75rem;
 }
 
-.mission-text {
-  font-size: clamp(1.1rem, 2.4vw, 1.45rem);
-  font-style: italic;
-  line-height: 1.9;
-  color: var(--mid);
-  max-width: 760px;
-  margin: 0 auto;
+/* BUTTONS */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-body); font-size: 0.9rem; font-weight: 600;
+  color: var(--white); background: var(--black); border: none;
+  padding: 0.75rem 1.6rem; border-radius: var(--radius-sm);
+  cursor: pointer; text-decoration: none;
+  transition: opacity .15s, transform .15s, box-shadow .15s;
+  box-shadow: 0 2px 8px rgba(0,0,0,.18);
 }
-.mission-text strong {
-  color: var(--black);
-  font-style: normal;
-  font-weight: 600;
+.btn-primary:hover { opacity: .87; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.18); }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-body); font-size: 0.9rem; font-weight: 500;
+  color: var(--dark); background: var(--white); border: 1.5px solid var(--border);
+  padding: 0.75rem 1.5rem; border-radius: var(--radius-sm);
+  cursor: pointer; text-decoration: none;
+  transition: border-color .15s, background .15s, transform .15s;
 }
+.btn-secondary:hover { border-color: var(--subtle); background: var(--bg-card); transform: translateY(-2px); }
 
-/* ══════════════════════════════════════════
-   CLOSING
-══════════════════════════════════════════ */
-.closing {
-  padding: 6rem 1.5rem 5rem;
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto;
+/* STATS */
+.stats {
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  display: flex; justify-content: center; flex-wrap: wrap;
 }
+.stat-item {
+  padding: 1.5rem 2.5rem; text-align: center;
+  border-right: 1px solid var(--border);
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
+  color: var(--black); display: block; line-height: 1; margin-bottom: 0.3rem;
+}
+.stat-label { font-size: 0.75rem; color: var(--muted); font-weight: 500; }
 
-.c-q {
-  font-family: var(--font-display);
-  font-size: clamp(1.3rem, 3.5vw, 2.2rem);
-  font-weight: 700;
-  line-height: 1.4;
-  color: var(--black);
-  margin-bottom: 2rem;
+/* FEATURES */
+.section { padding: 5.5rem 1.5rem; max-width: 1080px; margin: 0 auto; }
+.sec-label {
+  display: inline-block; font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 0.7rem;
 }
-.c-sub {
-  display: block;
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(0.9rem, 2vw, 1.15rem);
-  color: var(--muted);
-  margin-top: 0.5rem;
-  letter-spacing: 0.04em;
+.sec-title {
+  font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+  font-weight: 700; color: var(--black); line-height: 1.2; margin-bottom: 0.6rem;
 }
+.sec-desc { font-size: 1rem; color: var(--mid); line-height: 1.7; max-width: 520px; margin-bottom: 3rem; }
+.feat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.feat-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.75rem;
+  transition: box-shadow .2s, transform .2s, border-color .2s;
+  position: relative; overflow: hidden;
+}
+.feat-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--black); transform: scaleX(0); transform-origin: left;
+  transition: transform .25s ease;
+}
+.feat-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: #d0d0d0; }
+.feat-card:hover::before { transform: scaleX(1); }
+.feat-icon {
+  width: 38px; height: 38px; background: var(--white);
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+}
+.feat-icon svg { width: 18px; height: 18px; stroke: var(--dark); fill: none; stroke-width: 1.8; }
+.feat-num { font-size: 0.65rem; font-weight: 600; color: var(--subtle); letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+.feat-name { font-size: 0.95rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem; line-height: 1.3; }
+.feat-text { font-size: 0.88rem; color: var(--mid); line-height: 1.6; }
 
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--black);
-  background: transparent;
-  border: 1.5px solid var(--black);
-  padding: 0.9rem 2rem;
-  border-radius: 2px;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s, transform 0.15s;
-  text-decoration: none;
+/* MISSION */
+.mission-band { background: var(--black); color: var(--white); padding: 5rem 1.5rem; text-align: center; }
+.mission-inner { max-width: 700px; margin: 0 auto; }
+.mission-quote-mark {
+  font-family: var(--font-display); font-size: 4rem; line-height: 0.5;
+  color: rgba(255,255,255,.15); margin-bottom: 1.5rem; display: block;
 }
-.btn-ghost:hover {
-  background: var(--black);
-  color: var(--white);
-  transform: translateY(-1px);
-}
+.mission-text { font-size: clamp(1.05rem, 2.2vw, 1.3rem); line-height: 1.85; color: rgba(255,255,255,.75); font-style: italic; }
+.mission-text strong { color: var(--white); font-style: normal; font-weight: 600; }
 
-/* ══════════════════════════════════════════
-   FOOTER
-══════════════════════════════════════════ */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 2.5rem 1.5rem;
-  text-align: center;
-  background: var(--white);
+/* CLOSING CTA */
+.cta-section { padding: 6rem 1.5rem; text-align: center; max-width: 640px; margin: 0 auto; }
+.cta-title {
+  font-family: var(--font-display); font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+  font-weight: 700; line-height: 1.35; color: var(--black); margin-bottom: 0.6rem;
 }
-.ft-name {
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  color: var(--black);
-  margin-bottom: 0.4rem;
+.cta-sub {
+  display: block; font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(0.9rem, 2vw, 1.05rem); color: var(--muted); margin-top: 0.4rem;
 }
-.ft-sub {
-  font-family: var(--font-display);
-  font-size: 0.58rem;
-  letter-spacing: 0.12em;
-  color: var(--muted);
-  text-transform: uppercase;
-}
+.cta-support { font-size: 0.88rem; color: var(--muted); margin: 1.4rem 0 2.2rem; }
 
-/* ══════════════════════════════════════════
-   RESPONSIVE — MOBILE
-══════════════════════════════════════════ */
+/* FOOTER */
+footer { background: var(--bg-card); border-top: 1px solid var(--border); }
+.footer-inner { max-width: 1080px; margin: 0 auto; padding: 3rem 1.5rem 2rem; }
+.footer-top {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 2rem; flex-wrap: wrap;
+  padding-bottom: 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem;
+}
+.footer-brand-block { max-width: 280px; }
+.footer-logo-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.7rem; }
+.footer-logo {
+  width: 34px; height: 34px; background: var(--black); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.footer-logo svg { width: 18px; height: 18px; fill: white; }
+.footer-app-name {
+  font-family: var(--font-display); font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--black);
+}
+.footer-tagline { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+/* Contact */
+.footer-contact-col h4,
+.footer-legal-col h4 {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--dark); margin-bottom: 1rem;
+  font-family: var(--font-body);
+}
+.contact-list { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+.contact-list li a {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  font-size: 0.85rem; color: var(--mid); text-decoration: none; transition: color .15s;
+}
+.contact-list li a:hover { color: var(--black); }
+.contact-icon {
+  width: 32px; height: 32px; border: 1px solid var(--border);
+  border-radius: var(--radius-sm); background: var(--white);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: border-color .15s, background .15s; overflow: hidden;
+}
+.contact-list li a:hover .contact-icon { border-color: var(--subtle); background: var(--bg-hover); }
+.contact-icon svg { width: 18px; height: 18px; }
+
+/* Legal */
+.legal-links { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+.legal-links a {
+  font-size: 0.85rem; color: var(--mid);
+  text-decoration: underline; text-underline-offset: 3px;
+  text-decoration-color: rgba(0,0,0,.25); transition: color .15s, text-decoration-color .15s;
+}
+.legal-links a:hover { color: var(--black); text-decoration-color: var(--black); }
+
+/* Footer bottom */
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 0.5rem; font-size: 0.75rem; color: var(--muted);
+}
+.footer-bottom strong { color: var(--dark); font-weight: 600; }
+
+/* RESPONSIVE */
 @media (max-width: 640px) {
-  body { font-size: 16px; }
-
-  .topbar { padding: 0.75rem 1rem; }
-  .topbar-brand { font-size: 0.6rem; }
-
-  .hero {
-    padding: 3rem 1.25rem 4rem;
-  }
-
-  .hero-eyebrow {
-    font-size: 0.58rem;
-    letter-spacing: 0.18em;
-  }
-
-  .hero-cta {
-    width: 100%;
-    justify-content: center;
-    font-size: 0.7rem;
-    padding: 0.85rem 1.5rem;
-  }
-
-  .features { padding: 3.5rem 1rem; }
-
-  /* stack grid to 1 col on mobile */
-  .feat-grid {
-    grid-template-columns: 1fr;
-  }
-  .fc {
-    border-right: none !important;
-    border-bottom: 1px solid var(--border) !important;
-  }
-  .fc:last-child { border-bottom: none !important; }
-
-  .mission { padding: 3.5rem 1.25rem; }
-
-  .closing { padding: 4rem 1.25rem 3.5rem; }
-  .btn-ghost {
-    width: 100%;
-    justify-content: center;
-    font-size: 0.7rem;
-  }
+  .hero { padding: 3.5rem 1.25rem 4rem; }
+  .hero-actions { flex-direction: column; width: 100%; }
+  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+  .stats { flex-direction: column; }
+  .stat-item { border-right: none; border-bottom: 1px solid var(--border); padding: 1.2rem 1.5rem; }
+  .stat-item:last-child { border-bottom: none; }
+  .feat-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+  .footer-top { flex-direction: column; gap: 2rem; }
+  .footer-brand-block { max-width: 100%; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  nav { padding: 0 1rem; }
+  .nav-name { display: none; }
+  .section { padding: 3.5rem 1.25rem; }
+  .cta-section { padding: 4rem 1.25rem; }
 }
-
-/* ══════════════════════════════════════════
-   RESPONSIVE — TABLET
-══════════════════════════════════════════ */
 @media (min-width: 641px) and (max-width: 900px) {
   .feat-grid { grid-template-columns: 1fr 1fr; }
-
-  .fc:nth-last-child(-n+2) { border-bottom: none; }
 }
 </style>
 </head>
 <body>
 
-<!-- ═════════ NAV ═════════ -->
-<nav class="topbar">
-  <span class="topbar-brand">Zatovo Mianatra im-pito</span>
-  <button class="topbar-dl" id="dlNavBtn">Télécharger</button>
+<!-- ══ NAV ══ -->
+<nav>
+  <a href="#" class="nav-brand">
+    <div class="nav-logo">
+      <svg viewBox="0 0 24 24"><path d="M12 3C10.5 3 8 3.5 6 5V19C8 17.5 10.5 17 12 17s4 .5 6 2V5C16 3.5 13.5 3 12 3z"/></svg>
+    </div>
+    <span class="nav-name">Zatovo Mianatra im-pito</span>
+  </a>
+  <button class="nav-btn" id="dlNavBtn">Télécharger ↓</button>
 </nav>
 
-<!-- ═════════ HERO ═════════ -->
+<!-- ══ HERO ══ -->
 <section class="hero">
-  <p class="hero-eyebrow">Lesona Sekoly Sabata &nbsp;·&nbsp; Zatovo SDA Madagascar</p>
-  <h1 class="hero-title">
+  <div class="hero-badge fade d1">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+      <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2z"/>
+    </svg>
+    Zatovo SDA Madagascar <span>·</span> Sekoly Sabata
+  </div>
+  <h1 class="hero-title fade d2">
     Zatovo Mianatra
     <span class="hero-sub">im · pito</span>
   </h1>
-  <p class="hero-intro">
+  <p class="hero-desc fade d3">
     Miarahaba antsika rehetra, indrindra fa ny <strong>zatovo</strong>.
-    Ity tranonkala ity dia natao hizarana na hisintonana ny application
-    <strong>Lesona Sekoly Sabata</strong> ho an'ny zatovo 15 hatramin'ny 18 taona.
+    Ity application ity dia natao hizarana ny <strong>Lesona Sekoly Sabata</strong>
+    ho an'ny zatovo 15 hatramin'ny 18 taona — mora ampiasaina, na misy internet na tsia.
   </p>
-  <button class="hero-cta" id="dlAppBtn">Télécharger l'application</button>
+  <div class="hero-actions fade d4">
+    <button class="btn-primary" id="dlAppBtn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M12 3v13M5 14l7 7 7-7"/><path d="M3 21h18"/></svg>
+      Télécharger l'application
+    </button>
+    <button class="btn-secondary" id="dlApkBtn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+      APK Android
+    </button>
+  </div>
 </section>
 
-<hr class="divider">
+<!-- ══ STATS ══ -->
+<div class="stats fade d5">
+  <div class="stat-item">
+    <span class="stat-num">Q1–Q4</span>
+    <span class="stat-label">Lesona rehetra</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">7×</span>
+    <span class="stat-label">Impito ny herinandro</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">100%</span>
+    <span class="stat-label">Maimpo &amp; Offline</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">15–18</span>
+    <span class="stat-label">Taona (olon-tiana)</span>
+  </div>
+</div>
 
-<!-- ═════════ FEATURES ═════════ -->
-<section class="features">
-  <p class="sec-tag">Fonctionnalité</p>
-  <h2 class="sec-h">Ny rehetra ilainao ao anaty iray</h2>
+<!-- ══ FEATURES ══ -->
+<section class="section">
+  <p class="sec-label">Fonctionnalité</p>
+  <h2 class="sec-title">Ny rehetra ilainao<br>ao anaty iray</h2>
+  <p class="sec-desc">Voalamina ho mora ampiasaina sy azo itokisana — na misy wifi na tsia.</p>
+
   <div class="feat-grid">
-    <div class="fc">
-      <p class="fc-num">01 / 04</p>
-      <h3 class="fc-name">Lesona Rehetra</h3>
-      <p class="fc-text">Ahitana ny lesona rehetra Q1 ka hatramin'ny Q4, voalamina tsara ary mora tadiavina — na misy internet na tsia.</p>
+    <div class="feat-card">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+      </div>
+      <p class="feat-num">01 / 04</p>
+      <h3 class="feat-name">Lesona Rehetra</h3>
+      <p class="feat-text">Ahitana ny lesona rehetra Q1 ka hatramin'ny Q4, voalamina tsara ary mora tadiavina — na misy internet na tsia.</p>
     </div>
-    <div class="fc">
-      <p class="fc-num">02 / 04</p>
-      <h3 class="fc-name">Famintinana Isam-bentin'andro</h3>
-      <p class="fc-text">Ireo famintinana isakin'ny lesona tsirairay mba hahasarika anao ary hahatonga anao hihevitra lalina kokoa ny hafatra.</p>
+    <div class="feat-card">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      </div>
+      <p class="feat-num">02 / 04</p>
+      <h3 class="feat-name">Famintinana Isam-bentin'andro</h3>
+      <p class="feat-text">Ireo famintinana isakin'ny lesona tsirairay mba hahasarika anao ary hahatonga anao hihevitra lalina kokoa ny hafatra.</p>
     </div>
-    <div class="fc">
-      <p class="fc-num">03 / 04</p>
-      <h3 class="fc-name">Tahiry Lesona Taloha</h3>
-      <p class="fc-text">Ahitana ireo tahirindesona rehetra tany aloha — taona isam-taona voalamina tsara ary mora fitrandraka.</p>
+    <div class="feat-card">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg>
+      </div>
+      <p class="feat-num">03 / 04</p>
+      <h3 class="feat-name">Tahiry Lesona Taloha</h3>
+      <p class="feat-text">Ahitana ireo tahirindesona rehetra tany aloha — taona isam-taona voalamina tsara ary mora fitrandraka.</p>
     </div>
-    <div class="fc">
-      <p class="fc-num">04 / 04</p>
-      <h3 class="fc-name">Surlignage &amp; Commentaire</h3>
-      <p class="fc-text">Manamora ny fianarana satria misy surlignage sy commentaire mba hahafahana mahatadidy mora foana ny teny manandanja.</p>
+    <div class="feat-card">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      </div>
+      <p class="feat-num">04 / 04</p>
+      <h3 class="feat-name">Surlignage &amp; Commentaire</h3>
+      <p class="feat-text">Manamora ny fianarana satria misy surlignage sy commentaire mba hahafahana mahatadidy mora foana ny teny manandanja.</p>
     </div>
   </div>
 </section>
 
-<hr class="divider">
-
-<!-- ═════════ MISSION ═════════ -->
-<section class="mission">
-  <p class="sec-tag">Tanjona</p>
-  <p class="mission-text">
-    Ny tanjonay dia ny mba hahatonga ny
-    <strong>zatovo rehetra Advantista eto Madagascar</strong>
-    ho hahavita hianatra lesona impito ary hanampy azy ireo koa
-    ho <strong>hanakaiky kokoa an'Andriamanitra</strong>.
-    Satria ny ankamaroan'ny zatovo
-    dia efa samy mampiasa finday avokoa —
-    koa dia aoka hampiasaintsika izany ho fanatsarana ny fiainam-panahy.
-  </p>
+<!-- ══ MISSION ══ -->
+<section class="mission-band">
+  <div class="mission-inner">
+    <span class="mission-quote-mark">"</span>
+    <p class="mission-text">
+      Ny tanjonay dia ny mba hahatonga ny
+      <strong>zatovo rehetra Advantista eto Madagascar</strong>
+      ho hahavita hianatra lesona impito ary hanampy azy ireo koa
+      ho <strong>hanakaiky kokoa an'Andriamanitra</strong>.
+      Satria ny ankamaroan'ny zatovo dia efa samy mampiasa finday avokoa —
+      koa dia aoka hampiasaintsika izany ho fanatsarana ny fiainam-panahy.
+    </p>
+  </div>
 </section>
 
-<!-- ═════════ CLOSING ═════════ -->
-<section class="closing">
-  <h2 class="c-q">
+<!-- ══ CLOSING CTA ══ -->
+<section class="cta-section">
+  <h2 class="cta-title">
     Ka na dia 5 minitra isan'andro aza
-    <span class="c-sub">ve dia tsy ho foinao ho an'i Jesôsy?</span>
+    <span class="cta-sub">ve dia tsy ho foinao ho an'i Jesôsy?</span>
   </h2>
-  <button class="btn-ghost" id="dlApkBtn">Télécharger l'APK Android</button>
+  <p class="cta-support">Maimpo · Offline · Android · Malagasy</p>
+  <button class="btn-primary" id="dlApkBtn2">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M12 3v13M5 14l7 7 7-7"/><path d="M3 21h18"/></svg>
+    Télécharger l'APK Android
+  </button>
 </section>
 
-<!-- ═════════ FOOTER ═════════ -->
+<!-- ══ FOOTER ══ -->
 <footer>
-  <p class="ft-name">Zatovo Mianatra im-pito</p>
-  <p class="ft-sub">Zatovo Miaradia amin'i Jesosy &nbsp;·&nbsp; Madagascar &nbsp;·&nbsp; SDA</p>
+  <div class="footer-inner">
+    <div class="footer-top">
+
+      <!-- Brand -->
+      <div class="footer-brand-block">
+        <div class="footer-logo-row">
+          <div class="footer-logo">
+            <svg viewBox="0 0 24 24"><path d="M12 3C10.5 3 8 3.5 6 5V19C8 17.5 10.5 17 12 17s4 .5 6 2V5C16 3.5 13.5 3 12 3z"/></svg>
+          </div>
+          <span class="footer-app-name">Zatovo Mianatra im-pito</span>
+        </div>
+        <p class="footer-tagline">
+          Application Lesona Sekoly Sabata ho an'ny zatovo Advantista Malagasy.
+          Nataon'ny zatovo ho an'ny zatovo.
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-contact-col">
+        <h4>Mifandraisa</h4>
+        <ul class="contact-list">
+
+          <li>
+            <a href="https://www.facebook.com/andriamihajanavalona.finoana.ephraim" target="_blank" rel="noopener">
+              <span class="contact-icon">
+                <svg viewBox="0 0 32 32" fill="none">
+                  <rect width="32" height="32" rx="6" fill="#1877F2"/>
+                  <path d="M20 10.667h-2.667A1.333 1.333 0 0016 12v2.667h4L19.333 18H16v8h-3.333v-8H10v-3.333h2.667V12A4 4 0 0116.667 8H20v2.667z" fill="white"/>
+                </svg>
+              </span>
+              Facebook
+            </a>
+          </li>
+
+          <li>
+            <a href="https://wa.me/261338471985" target="_blank" rel="noopener">
+              <span class="contact-icon">
+                <svg viewBox="0 0 32 32" fill="none">
+                  <rect width="32" height="32" rx="6" fill="#25D366"/>
+                  <path d="M16 6C10.477 6 6 10.477 6 16c0 1.99.548 3.848 1.497 5.437L6 26l4.72-1.469A9.956 9.956 0 0016 26c5.523 0 10-4.477 10-10S21.523 6 16 6zm5.265 14.765c-.221.622-1.302 1.188-1.796 1.252-.444.058-.993.08-1.605-.1-.369-.11-.843-.258-1.45-.51-2.551-1.103-4.214-3.65-4.34-3.82-.127-.17-1.037-1.38-1.037-2.633 0-1.254.657-1.87.891-2.123.233-.254.507-.317.677-.317h.487c.156 0 .368-.059.577.44.21.498.713 1.75.775 1.877.063.127.105.275.02.444-.085.17-.127.276-.254.423-.127.148-.267.33-.38.443-.126.127-.258.265-.11.52.147.254.655 1.082 1.406 1.752.966.863 1.78 1.13 2.033 1.256.254.127.402.106.55-.063.147-.17.635-.74.804-1 .17-.254.338-.211.57-.127.232.084 1.473.695 1.726.822.254.127.423.19.486.296.063.106.063.613-.158 1.235z" fill="white"/>
+                </svg>
+              </span>
+              +261 33 847 19 85
+            </a>
+          </li>
+
+          <li>
+            <a href="mailto:ephraim.nyfinoana@gmail.com">
+              <span class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <path d="M2 7l10 7 10-7"/>
+                </svg>
+              </span>
+              ephraim.nyfinoana@gmail.com
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div class="footer-legal-col">
+        <h4>Ara-dalàna</h4>
+        <ul class="legal-links">
+          <li>
+            <a href="https://sites.google.com/view/lesonazatovo-app/privacy-terms"
+               target="_blank" rel="noopener">
+              Privacy &amp; Terms
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div><!-- /footer-top -->
+
+    <div class="footer-bottom">
+      <span>© 2025 <strong>Zatovo Mianatra im-pito</strong>. Zon'asa voatahiry.</span>
+      <span>Zatovo Miaradia amin'i Jesosy · Madagascar · SDA</span>
+    </div>
+  </div>
 </footer>
 
 <script>
-  (function() {
-    function showNotAvailable() {
+(function () {
+  var APK_URL = ""; /* ← soloina eto ny URL tena izy rehefa avoaka ny release */
+
+  function handleDownload(e) {
+    e.preventDefault();
+    if (APK_URL) {
+      window.location.href = APK_URL;
+    } else {
       alert("⚠️ Ny fampidinana dia tsy mbola azo alaina. Ho avoaka tsy ho ela ny rohy fampidinana ofisialy. Misaotra ny faharetanao!");
     }
+  }
 
-    ['dlAppBtn', 'dlNavBtn', 'dlApkBtn'].forEach(function(id) {
-      var btn = document.getElementById(id);
-      if (btn) {
-        btn.addEventListener('click', function(e) {
-          e.preventDefault();
-          showNotAvailable();
-        });
-      }
-    });
-  })();
+  ["dlNavBtn", "dlAppBtn", "dlApkBtn", "dlApkBtn2"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("click", handleDownload);
+  });
+})();
 </script>
 </body>
 </html>
