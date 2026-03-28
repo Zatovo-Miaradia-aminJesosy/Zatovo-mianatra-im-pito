@@ -1,1 +1,167 @@
-
+{
+  "timestamp": 1772135166,
+  "quarter": {
+    "num": 2,
+    "year": 2026,
+    "start": "2026-03-28",
+    "end": "2026-06-27"
+  },
+  "lessons": [
+    {
+      "id": 1,
+      "title": "Fanantenana - Lesona 1",
+      "image": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/imagesQ2/lesson1.jpg",
+      "content_url": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/lessonsQ2/lesson_1.json",
+      "version": "1.0",
+      "timestamp": 1774454400,
+      "created_at": 1774454400,
+      "updated_at": 1774454400,
+      "start_date": "2026-03-28",
+      "end_date": "2026-04-03"
+    },
+    {
+      "id": 2,
+      "title": "Ilay fanomezana nampanantenaina - Lesona 2",
+      "image": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/imagesQ2/lesson2.jpg",
+      "content_url": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/lessonsQ2/lesson_2.json",
+      "version": "1.0",
+      "timestamp": 1775062800,
+      "created_at": 1775062800,
+      "updated_at": 1775062800,
+      "start_date": "2026-04-04",
+      "end_date": "2026-04-10"
+    },
+    {
+      "id": 3,
+      "title": "Maneho an'i Jesosy - Lesona 3",
+      "image": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/imagesQ2/lesson3.jpg",
+      "content_url": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/lessonsQ2/lesson_3.json",
+      "version": "1.0",
+      "timestamp": 1775667600,
+      "created_at": 1775667600,
+      "updated_at": 1775667600,
+      "start_date": "2026-04-11",
+      "end_date": "2026-04-17"
+    },
+    {
+      "id": 4,
+      "title": "Ny Fahitsian-toetra - Lesona 4",
+      "image": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/imagesQ2/lesson4.jpg",
+      "content_url": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/lessonsQ2/lesson_4.json",
+      "version": "1.0",
+      "timestamp": 1776272400,
+      "created_at": 1776272400,
+      "updated_at": 1776272400,
+      "start_date": "2026-04-18",
+      "end_date": "2026-04-24"
+    },
+    {
+      "id": 5,
+      "title": "Hery, Faharetana, Tanjona - Lesona 5",
+      "image": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/imagesQ2/lesson5.jpg",
+      "content_url": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/lessonsQ2/lesson_5.json",
+      "version": "1.0",
+      "timestamp": 1776877200,
+      "created_at": 1776877200,
+      "updated_at": 1776877200,
+      "start_date": "2026-04-25",
+      "end_date": "2026-05-01"
+    },
+    {
+      "id": 6,
+      "title": "Ilay maritiora Kristianina voalohany - Lesona 6",
+      "image": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/imagesQ2/lesson6.jpg",
+      "content_url": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/lessonsQ2/lesson_6.json",
+      "version": "1.0",
+      "timestamp": 1777482000,
+      "created_at": 1777482000,
+      "updated_at": 1777482000,
+      "start_date": "2026-05-02",
+      "end_date": "2026-05-08"
+    },
+    {
+      "id": 7,
+      "title": "Manatratra ny eo aloha - Lesona 7",
+      "image": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/imagesQ2/lesson7.jpg",
+      "content_url": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/lessonsQ2/lesson_7.json",
+      "version": "1.0",
+      "timestamp": 1778086800,
+      "created_at": 1778086800,
+      "updated_at": 1778086800,
+      "start_date": "2026-05-09",
+      "end_date": "2026-05-15"
+    },
+    {
+      "id": 8,
+      "title": "Porofon'ny Fiovam-po - Lesona 8",
+      "image": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/imagesQ2/lesson8.jpg",
+      "content_url": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/lessonsQ2/lesson_8.json",
+      "version": "1.0",
+      "timestamp": 1778691600,
+      "created_at": 1778691600,
+      "updated_at": 1778691600,
+      "start_date": "2026-05-16",
+      "end_date": "2026-05-22"
+    },
+    {
+      "id": 9,
+      "title": "Ny tena ivon-toeran'ny iraka - Lesona 9",
+      "image": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/imagesQ2/lesson9.jpg",
+      "content_url": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/lessonsQ2/lesson_9.json",
+      "version": "1.0",
+      "timestamp": 1779296400,
+      "created_at": 1779296400,
+      "updated_at": 1779296400,
+      "start_date": "2026-05-23",
+      "end_date": "2026-05-29"
+    },
+    {
+      "id": 10,
+      "title": "Izahay sy ry zareo - Lesona 10",
+      "image": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/imagesQ2/lesson10.jpg",
+      "content_url": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/lessonsQ2/lesson_10.json",
+      "version": "1.0",
+      "timestamp": 1779901200,
+      "created_at": 1779901200,
+      "updated_at": 1779901200,
+      "start_date": "2026-05-30",
+      "end_date": "2026-06-05"
+    },
+    {
+      "id": 11,
+      "title": "Finoana Miasa - Lesona 11",
+      "image": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/imagesQ2/lesson11.jpg",
+      "content_url": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/lessonsQ2/lesson_11.json",
+      "version": "1.0",
+      "timestamp": 1780506000,
+      "created_at": 1780506000,
+      "updated_at": 1780506000,
+      "start_date": "2026-06-06",
+      "end_date": "2026-06-12"
+    },
+    {
+      "id": 12,
+      "title": "Manantena Hatrany - Lesona 12",
+      "image": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/imagesQ2/lesson12.jpg",
+      "content_url": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/lessonsQ2/lesson_12.json",
+      "version": "1.0",
+      "timestamp": 1781110800,
+      "created_at": 1781110800,
+      "updated_at": 1781110800,
+      "start_date": "2026-06-13",
+      "end_date": "2026-06-19"
+    },
+    {
+      "id": 13,
+      "title": "Olom-bitsy Tsy Maha-te Ho Tia - Lesona 13",
+      "image": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/imagesQ2/lesson13.jpg",
+      "content_url": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/lessonsQ2/lesson_13.json",
+      "version": "1.0",
+      "timestamp": 1781715600,
+      "created_at": 1781715600,
+      "updated_at": 1781715600,
+      "start_date": "2026-06-20",
+      "end_date": "2026-06-26"
+    }
+  ]
+}
