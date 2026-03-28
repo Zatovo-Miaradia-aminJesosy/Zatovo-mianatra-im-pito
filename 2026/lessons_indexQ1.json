@@ -1,5 +1,5 @@
 {
-  "timestamp": 1772135166,
+  "timestamp": 1766793600,
   "quarter": {
     "num": 1,
     "year": 2026,
@@ -25,9 +25,9 @@
       "image": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/imagesQ1/lesson2.jpg",
       "content_url": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/lessonsQ1/lesson_2.json",
       "version": "1.0",
-      "timestamp": 1771327273,
-      "created_at": 1771327273,
-      "updated_at": 1771327273,
+      "timestamp": 1767398400,
+      "created_at": 1767398400,
+      "updated_at": 1767398400,
       "start_date": "2026-01-03",
       "end_date": "2026-01-09"
     },
@@ -37,9 +37,9 @@
       "image": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/imagesQ1/lesson3.jpg",
       "content_url": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/lessonsQ1/lesson_3.json",
       "version": "1.0",
-      "timestamp": 1771754068,
-      "created_at": 1771754068,
-      "updated_at": 1771754068,
+      "timestamp": 1768003200,
+      "created_at": 1768003200,
+      "updated_at": 1768003200,
       "start_date": "2026-01-10",
       "end_date": "2026-01-16"
     },
@@ -121,9 +121,9 @@
       "image": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/imagesQ1/lesson10.jpg",
       "content_url": "https://raw.githubusercontent.com/Zatovo-Miaradia-aminJesosy/Zatovo-mianatra-im-pito/main/2026/lessonsQ1/lesson_10.json",
       "version": "1.0",
-      "timestamp": 1772755200,
-      "created_at": 1772755200,
-      "updated_at": 1772755200,
+      "timestamp": 1772236800,
+      "created_at": 1772236800,
+      "updated_at": 1772236800,
       "start_date": "2026-02-28",
       "end_date": "2026-03-06"
     },
